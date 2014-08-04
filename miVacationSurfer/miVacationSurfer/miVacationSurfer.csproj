@@ -333,11 +333,6 @@
     <Content Include="Views\Season\Details.cshtml" />
     <Content Include="Views\Season\Edit.cshtml" />
     <Content Include="Views\Season\Index.cshtml" />
-    <Content Include="Views\SeasonActivitie\Create.cshtml" />
-    <Content Include="Views\SeasonActivitie\Delete.cshtml" />
-    <Content Include="Views\SeasonActivitie\Details.cshtml" />
-    <Content Include="Views\SeasonActivitie\Edit.cshtml" />
-    <Content Include="Views\SeasonActivitie\Index.cshtml" />
     <Content Include="Views\Activity\Create.cshtml" />
     <Content Include="Views\Activity\Delete.cshtml" />
     <Content Include="Views\Activity\Details.cshtml" />
@@ -348,6 +343,11 @@
     <Content Include="Views\ActivityReview\Details.cshtml" />
     <Content Include="Views\ActivityReview\Edit.cshtml" />
     <Content Include="Views\ActivityReview\Index.cshtml" />
+    <Content Include="Views\SeasonActivity\Create.cshtml" />
+    <Content Include="Views\SeasonActivity\Delete.cshtml" />
+    <Content Include="Views\SeasonActivity\Details.cshtml" />
+    <Content Include="Views\SeasonActivity\Edit.cshtml" />
+    <Content Include="Views\SeasonActivity\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

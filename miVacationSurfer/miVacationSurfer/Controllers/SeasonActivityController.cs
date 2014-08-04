@@ -14,14 +14,14 @@ namespace miVacationSurfer.Controllers
     {
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
-        // GET: SeasonActivitie
+        // GET: SeasonActivity
         public ActionResult Index()
         {
             var seasonActivities = db.SeasonActivities.Include(s => s.Activity).Include(s => s.Season);
             return View(seasonActivities.ToList());
         }
 
-        // GET: SeasonActivitie/Details/5
+        // GET: SeasonActivity/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,7 +36,7 @@ namespace miVacationSurfer.Controllers
             return View(seasonActivity);
         }
 
-        // GET: SeasonActivitie/Create
+        // GET: SeasonActivity/Create
         public ActionResult Create()
         {
             ViewBag.ActivityId = new SelectList(db.Activities, "Id", "ActivityName");
@@ -44,7 +44,7 @@ namespace miVacationSurfer.Controllers
             return View();
         }
 
-        // POST: SeasonActivitie/Create
+        // POST: SeasonActivity/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -63,7 +63,7 @@ namespace miVacationSurfer.Controllers
             return View(seasonActivity);
         }
 
-        // GET: SeasonActivitie/Edit/5
+        // GET: SeasonActivity/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,7 +80,7 @@ namespace miVacationSurfer.Controllers
             return View(seasonActivity);
         }
 
-        // POST: SeasonActivitie/Edit/5
+        // POST: SeasonActivity/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -98,7 +98,7 @@ namespace miVacationSurfer.Controllers
             return View(seasonActivity);
         }
 
-        // GET: SeasonActivitie/Delete/5
+        // GET: SeasonActivity/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,7 +113,7 @@ namespace miVacationSurfer.Controllers
             return View(seasonActivity);
         }
 
-        // POST: SeasonActivitie/Delete/5
+        // POST: SeasonActivity/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
