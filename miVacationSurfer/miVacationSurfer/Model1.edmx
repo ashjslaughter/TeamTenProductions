@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="miVacationSurferModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActivityDesc" Type="text" />
+        </EntityType>
+        <EntityType Name="ActivityReview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityRating" Type="int" Nullable="false" />
+          <Property Name="ActivityDate" Type="date" Nullable="false" />
+          <Property Name="ActivityPro" Type="text" />
+          <Property Name="ActivityCon" Type="text" />
+          <Property Name="ActivityReviewDetails" Type="text" />
+          <Property Name="ActivityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActivityType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActivityTypeDesc" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActivityTypeSeason">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeasonId" Type="int" Nullable="false" />
+          <Property Name="ActivityTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LocationDesc" Type="text" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LocationActivityType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityTypeId" Type="int" Nullable="false" />
+          <Property Name="LocationId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LocationReview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationRating" Type="int" Nullable="false" />
+          <Property Name="LocationDate" Type="date" Nullable="false" />
+          <Property Name="LocationPro" Type="text" />
+          <Property Name="LocationCon" Type="text" />
+          <Property Name="LocationReviewDetails" Type="text" />
+          <Property Name="LocationId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegionDesc" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Season">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeasonName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SeasonActivity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityId" Type="int" Nullable="false" />
+          <Property Name="SeasonId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_ActivityReview_Activity">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="ActivityReview" Type="Self.ActivityReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityReview">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityTypeSeason_ActivityType">
+          <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ActivityTypeSeason" Type="Self.ActivityTypeSeason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityTypeSeason">
+              <PropertyRef Name="ActivityTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityTypeSeason_Season">
+          <End Role="Season" Type="Self.Season" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ActivityTypeSeason" Type="Self.ActivityTypeSeason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityTypeSeason">
+              <PropertyRef Name="SeasonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Location" Type="Self.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationActivityType_ActivityType">
+          <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationActivityType" Type="Self.LocationActivityType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LocationActivityType">
+              <PropertyRef Name="ActivityTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationActivityType_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationActivityType" Type="Self.LocationActivityType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LocationActivityType">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationReview_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="LocationReview" Type="Self.LocationReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LocationReview">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeasonActivity_Activity">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SeasonActivity" Type="Self.SeasonActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SeasonActivity">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeasonActivity_Season">
+          <End Role="Season" Type="Self.Season" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SeasonActivity" Type="Self.SeasonActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SeasonActivity">
+              <PropertyRef Name="SeasonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="miVacationSurferModelStoreContainer">
+          <EntitySet Name="Activity" EntityType="Self.Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityReview" EntityType="Self.ActivityReview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityType" EntityType="Self.ActivityType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityTypeSeason" EntityType="Self.ActivityTypeSeason" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationActivityType" EntityType="Self.LocationActivityType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationReview" EntityType="Self.LocationReview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Season" EntityType="Self.Season" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeasonActivity" EntityType="Self.SeasonActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ActivityReview_Activity" Association="Self.FK_ActivityReview_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="ActivityReview" EntitySet="ActivityReview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityTypeSeason_ActivityType" Association="Self.FK_ActivityTypeSeason_ActivityType">
+            <End Role="ActivityType" EntitySet="ActivityType" />
+            <End Role="ActivityTypeSeason" EntitySet="ActivityTypeSeason" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityTypeSeason_Season" Association="Self.FK_ActivityTypeSeason_Season">
+            <End Role="Season" EntitySet="Season" />
+            <End Role="ActivityTypeSeason" EntitySet="ActivityTypeSeason" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_Region" Association="Self.FK_Location_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationActivityType_ActivityType" Association="Self.FK_LocationActivityType_ActivityType">
+            <End Role="ActivityType" EntitySet="ActivityType" />
+            <End Role="LocationActivityType" EntitySet="LocationActivityType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationActivityType_Location" Association="Self.FK_LocationActivityType_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="LocationActivityType" EntitySet="LocationActivityType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationReview_Location" Association="Self.FK_LocationReview_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="LocationReview" EntitySet="LocationReview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeasonActivity_Activity" Association="Self.FK_SeasonActivity_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="SeasonActivity" EntitySet="SeasonActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeasonActivity_Season" Association="Self.FK_SeasonActivity_Season">
+            <End Role="Season" EntitySet="Season" />
+            <End Role="SeasonActivity" EntitySet="SeasonActivity" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="miVacationSurferModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActivityDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ActivityReviews" Relationship="Self.FK_ActivityReview_Activity" FromRole="Activity" ToRole="ActivityReview" />
+          <NavigationProperty Name="SeasonActivities" Relationship="Self.FK_SeasonActivity_Activity" FromRole="Activity" ToRole="SeasonActivity" />
+        </EntityType>
+        <EntityType Name="ActivityReview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityRating" Type="Int32" Nullable="false" />
+          <Property Name="ActivityDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ActivityPro" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ActivityCon" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ActivityReviewDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ActivityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK_ActivityReview_Activity" FromRole="ActivityReview" ToRole="Activity" />
+        </EntityType>
+        <EntityType Name="ActivityType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActivityTypeDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ActivityTypeSeasons" Relationship="Self.FK_ActivityTypeSeason_ActivityType" FromRole="ActivityType" ToRole="ActivityTypeSeason" />
+          <NavigationProperty Name="LocationActivityTypes" Relationship="Self.FK_LocationActivityType_ActivityType" FromRole="ActivityType" ToRole="LocationActivityType" />
+        </EntityType>
+        <EntityType Name="ActivityTypeSeason">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeasonId" Type="Int32" Nullable="false" />
+          <Property Name="ActivityTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ActivityType" Relationship="Self.FK_ActivityTypeSeason_ActivityType" FromRole="ActivityTypeSeason" ToRole="ActivityType" />
+          <NavigationProperty Name="Season" Relationship="Self.FK_ActivityTypeSeason_Season" FromRole="ActivityTypeSeason" ToRole="Season" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LocationDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Region" Relationship="Self.FK_Location_Region" FromRole="Location" ToRole="Region" />
+          <NavigationProperty Name="LocationActivityTypes" Relationship="Self.FK_LocationActivityType_Location" FromRole="Location" ToRole="LocationActivityType" />
+          <NavigationProperty Name="LocationReviews" Relationship="Self.FK_LocationReview_Location" FromRole="Location" ToRole="LocationReview" />
+        </EntityType>
+        <EntityType Name="LocationActivityType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityTypeId" Type="Int32" Nullable="false" />
+          <Property Name="LocationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ActivityType" Relationship="Self.FK_LocationActivityType_ActivityType" FromRole="LocationActivityType" ToRole="ActivityType" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_LocationActivityType_Location" FromRole="LocationActivityType" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="LocationReview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationRating" Type="Int32" Nullable="false" />
+          <Property Name="LocationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LocationPro" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LocationCon" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LocationReviewDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LocationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_LocationReview_Location" FromRole="LocationReview" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegionDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Locations" Relationship="Self.FK_Location_Region" FromRole="Region" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="Season">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeasonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ActivityTypeSeasons" Relationship="Self.FK_ActivityTypeSeason_Season" FromRole="Season" ToRole="ActivityTypeSeason" />
+          <NavigationProperty Name="SeasonActivities" Relationship="Self.FK_SeasonActivity_Season" FromRole="Season" ToRole="SeasonActivity" />
+        </EntityType>
+        <EntityType Name="SeasonActivity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityId" Type="Int32" Nullable="false" />
+          <Property Name="SeasonId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK_SeasonActivity_Activity" FromRole="SeasonActivity" ToRole="Activity" />
+          <NavigationProperty Name="Season" Relationship="Self.FK_SeasonActivity_Season" FromRole="SeasonActivity" ToRole="Season" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_ActivityReview_Activity">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="ActivityReview" Type="Self.ActivityReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityReview">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeasonActivity_Activity">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SeasonActivity" Type="Self.SeasonActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SeasonActivity">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityTypeSeason_ActivityType">
+          <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ActivityTypeSeason" Type="Self.ActivityTypeSeason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityTypeSeason">
+              <PropertyRef Name="ActivityTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationActivityType_ActivityType">
+          <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationActivityType" Type="Self.LocationActivityType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LocationActivityType">
+              <PropertyRef Name="ActivityTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityTypeSeason_Season">
+          <End Role="Season" Type="Self.Season" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ActivityTypeSeason" Type="Self.ActivityTypeSeason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityTypeSeason">
+              <PropertyRef Name="SeasonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Location" Type="Self.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationActivityType_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationActivityType" Type="Self.LocationActivityType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LocationActivityType">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationReview_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="LocationReview" Type="Self.LocationReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LocationReview">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeasonActivity_Season">
+          <End Role="Season" Type="Self.Season" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SeasonActivity" Type="Self.SeasonActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SeasonActivity">
+              <PropertyRef Name="SeasonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="miVacationSurferEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activities" EntityType="Self.Activity" />
+          <EntitySet Name="ActivityReviews" EntityType="Self.ActivityReview" />
+          <EntitySet Name="ActivityTypes" EntityType="Self.ActivityType" />
+          <EntitySet Name="ActivityTypeSeasons" EntityType="Self.ActivityTypeSeason" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="LocationActivityTypes" EntityType="Self.LocationActivityType" />
+          <EntitySet Name="LocationReviews" EntityType="Self.LocationReview" />
+          <EntitySet Name="Regions" EntityType="Self.Region" />
+          <EntitySet Name="Seasons" EntityType="Self.Season" />
+          <EntitySet Name="SeasonActivities" EntityType="Self.SeasonActivity" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_ActivityReview_Activity" Association="Self.FK_ActivityReview_Activity">
+            <End Role="Activity" EntitySet="Activities" />
+            <End Role="ActivityReview" EntitySet="ActivityReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeasonActivity_Activity" Association="Self.FK_SeasonActivity_Activity">
+            <End Role="Activity" EntitySet="Activities" />
+            <End Role="SeasonActivity" EntitySet="SeasonActivities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityTypeSeason_ActivityType" Association="Self.FK_ActivityTypeSeason_ActivityType">
+            <End Role="ActivityType" EntitySet="ActivityTypes" />
+            <End Role="ActivityTypeSeason" EntitySet="ActivityTypeSeasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationActivityType_ActivityType" Association="Self.FK_LocationActivityType_ActivityType">
+            <End Role="ActivityType" EntitySet="ActivityTypes" />
+            <End Role="LocationActivityType" EntitySet="LocationActivityTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityTypeSeason_Season" Association="Self.FK_ActivityTypeSeason_Season">
+            <End Role="Season" EntitySet="Seasons" />
+            <End Role="ActivityTypeSeason" EntitySet="ActivityTypeSeasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_Region" Association="Self.FK_Location_Region">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="Location" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationActivityType_Location" Association="Self.FK_LocationActivityType_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="LocationActivityType" EntitySet="LocationActivityTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationReview_Location" Association="Self.FK_LocationReview_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="LocationReview" EntitySet="LocationReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeasonActivity_Season" Association="Self.FK_SeasonActivity_Season">
+            <End Role="Season" EntitySet="Seasons" />
+            <End Role="SeasonActivity" EntitySet="SeasonActivities" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="miVacationSurferModelStoreContainer" CdmEntityContainer="miVacationSurferEntities">
+          <EntitySetMapping Name="Activities">
+            <EntityTypeMapping TypeName="miVacationSurferModel.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+                <ScalarProperty Name="ActivityDesc" ColumnName="ActivityDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityReviews">
+            <EntityTypeMapping TypeName="miVacationSurferModel.ActivityReview">
+              <MappingFragment StoreEntitySet="ActivityReview">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActivityRating" ColumnName="ActivityRating" />
+                <ScalarProperty Name="ActivityDate" ColumnName="ActivityDate" />
+                <ScalarProperty Name="ActivityPro" ColumnName="ActivityPro" />
+                <ScalarProperty Name="ActivityCon" ColumnName="ActivityCon" />
+                <ScalarProperty Name="ActivityReviewDetails" ColumnName="ActivityReviewDetails" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityTypes">
+            <EntityTypeMapping TypeName="miVacationSurferModel.ActivityType">
+              <MappingFragment StoreEntitySet="ActivityType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActivityTypeName" ColumnName="ActivityTypeName" />
+                <ScalarProperty Name="ActivityTypeDesc" ColumnName="ActivityTypeDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityTypeSeasons">
+            <EntityTypeMapping TypeName="miVacationSurferModel.ActivityTypeSeason">
+              <MappingFragment StoreEntitySet="ActivityTypeSeason">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
+                <ScalarProperty Name="ActivityTypeId" ColumnName="ActivityTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="miVacationSurferModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="LocationDesc" ColumnName="LocationDesc" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationActivityTypes">
+            <EntityTypeMapping TypeName="miVacationSurferModel.LocationActivityType">
+              <MappingFragment StoreEntitySet="LocationActivityType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActivityTypeId" ColumnName="ActivityTypeId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationReviews">
+            <EntityTypeMapping TypeName="miVacationSurferModel.LocationReview">
+              <MappingFragment StoreEntitySet="LocationReview">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LocationRating" ColumnName="LocationRating" />
+                <ScalarProperty Name="LocationDate" ColumnName="LocationDate" />
+                <ScalarProperty Name="LocationPro" ColumnName="LocationPro" />
+                <ScalarProperty Name="LocationCon" ColumnName="LocationCon" />
+                <ScalarProperty Name="LocationReviewDetails" ColumnName="LocationReviewDetails" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="miVacationSurferModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+                <ScalarProperty Name="RegionDesc" ColumnName="RegionDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seasons">
+            <EntityTypeMapping TypeName="miVacationSurferModel.Season">
+              <MappingFragment StoreEntitySet="Season">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SeasonName" ColumnName="SeasonName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeasonActivities">
+            <EntityTypeMapping TypeName="miVacationSurferModel.SeasonActivity">
+              <MappingFragment StoreEntitySet="SeasonActivity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="miVacationSurferModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

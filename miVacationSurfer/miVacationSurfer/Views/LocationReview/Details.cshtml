@@ -1,0 +1,66 @@
+﻿@model miVacationSurfer.LocationReview
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LocationReview</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationPro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationPro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationCon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationCon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationReviewDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationReviewDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.LocationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.LocationName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
