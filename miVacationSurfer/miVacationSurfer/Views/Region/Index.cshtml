@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.RegionName)
+            @Html.ActionLink("Region Name", "Index", new { sortOrder = ViewBag.NameSortParm})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RegionDesc)
+            Description
         </th>
         <th></th>
     </tr>
