@@ -1,0 +1,1 @@
+miVacationSurfer is a Michigan vacation destination and activity finder and review site.  The reviews can be written on activities or locations, and include a star rating system.
