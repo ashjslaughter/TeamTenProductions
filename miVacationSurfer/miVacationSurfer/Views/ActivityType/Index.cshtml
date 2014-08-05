@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ActivityTypeName)
+            @Html.ActionLink("Activity Type", "Index", new { sortOrder =ViewBag.TypeSortParm})
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ActivityTypeDesc)

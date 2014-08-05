@@ -15,9 +15,22 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: ActivityType
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.ActivityTypes.ToList());
+            ViewBag.TypeSortParm = String.IsNullOrEmpty(sortOrder) ? "type_desc" : "";
+            var activityTypes = from s in db.ActivityTypes
+                        select s;
+            switch(sortOrder)
+            {
+                case "type_desc":
+                    activityTypes = activityTypes.OrderByDescending(s => s.ActivityTypeName);
+                    break;
+                default:
+                    activityTypes = activityTypes.OrderBy(s => s.ActivityTypeName);
+                    break;
+            }
+
+            return View(activityTypes.ToList());
         }
 
         // GET: ActivityType/Details/5

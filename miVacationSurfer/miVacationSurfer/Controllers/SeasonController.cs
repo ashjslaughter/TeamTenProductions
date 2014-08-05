@@ -15,9 +15,21 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: Season
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Seasons.ToList());
+            ViewBag.SeasonSortParm = String.IsNullOrEmpty(sortOrder) ? "season_desc" : "";
+            var seasons = from s in db.Seasons
+                          select s;
+            switch (sortOrder)
+            {
+                case "season_desc":
+                    seasons = seasons.OrderByDescending(s => s.SeasonName);
+                    break;
+                default:
+                    seasons = seasons.OrderBy(s => s.SeasonName);
+                    break;
+            }
+            return View(seasons.ToList());
         }
 
         // GET: Season/Details/5
