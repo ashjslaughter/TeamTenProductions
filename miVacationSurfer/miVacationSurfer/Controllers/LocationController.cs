@@ -19,7 +19,7 @@ namespace miVacationSurfer.Controllers
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.SizeSortParm = String.IsNullOrEmpty(sortOrder) ? "size_desc" : "";
-            ViewBag.RegionSortParm = String.IsNullOrEmpty(sortOrder) ? "region" : "";
+            ViewBag.RegionSortParm = String.IsNullOrEmpty(sortOrder) ? "region_desc" : "";
 
             var locations = from s in db.Locations
                           select s;
@@ -33,8 +33,8 @@ namespace miVacationSurfer.Controllers
                     locations = locations.OrderByDescending(s => s.Size);
                     break;
 
-                case "region":
-                    locations = locations.OrderBy(s => s.Region.RegionName);
+                case "region_desc":
+                    locations = locations.OrderByDescending(s => s.Region.RegionName);
                     break;
 
                 default:

@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.LocationRating)
+            @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LocationDate)
+            @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm})
         </th>
         <th>
             @Html.DisplayNameFor(model => model.LocationPro)
@@ -27,7 +27,7 @@
             @Html.DisplayNameFor(model => model.LocationReviewDetails)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Location.LocationName)
+            @Html.ActionLink("Location", "Index", new { sortOrder = ViewBag.LocationSortParm})
         </th>
         <th></th>
     </tr>
