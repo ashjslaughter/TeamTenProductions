@@ -1,21 +1,27 @@
-﻿body {
-
+﻿.wrapper{
+    width:450px;
+    margin:0 auto;
 }
 
 #slideshow{
-    margin: 30px auto;
-    position:relative;
     width: 450px;
     height:450px;
-    padding: 10px;
     overflow: hidden;
+    margin: 30px auto;
+
 }
 
 
-#slideshow img{
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:8;
+#slideshow > img{
+    width: 450px;
+    height:450px;
+    float:left;
+    display:none;
 }
+
+/*a{
+    padding: 5px 10px;
+    background-color: aqua;
+    margin-top: 30px;
+}*/
 

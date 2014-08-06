@@ -7,8 +7,10 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/showtime.css")
-
-
+    @Scripts.Render("~/Content/jquery.js")
+    @Scripts.Render("~/Content/slider.js")
+    <script type="text/javascript" src="~/Content/jquery.js"></script>
+    <script type="text/javascript" src="~/Content/slider.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -45,7 +47,8 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
+    <script type="text/javascript" src="~/Content/jquery.js"></script>
+    <script type="text/javascript" src="~/Content/slider.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
