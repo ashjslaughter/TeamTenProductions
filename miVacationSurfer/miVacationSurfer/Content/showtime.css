@@ -1,0 +1,21 @@
+﻿body {
+
+}
+
+#slideshow{
+    margin: 30px auto;
+    position:relative;
+    width: 450px;
+    height:450px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+
+#slideshow img{
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:8;
+}
+
