@@ -1,7 +1,7 @@
 ﻿@{
-    ViewBag.Title = "MIvacationSurfer";
+    ViewBag.Title = "Home Page";
 }
-<head><title></title>
+<head>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 <script type="text/javascript">
@@ -16,7 +16,7 @@
             $(".slider #" + count).show("slide", { direction: 'right' }, 500);
             $(".slider #" + count).delay(5500).hide("slide", { direction: 'left' }, 500);
 
-            if (count == 500) {
+            if (count == sc) {
                 count = 1;
             }
             else {
@@ -27,24 +27,17 @@
     </script>
 </head>
 <body onload="Slider();">
-@*<div class="jumbotron">
-    <h1>MIvacationSurfer</h1>
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>*@
+</div>
 
 <div class="row">
-
-    <div id="slideshow">
-        <img id="1" src="~/Content/Pictures/Sun.jpg" border="0" alt="sun" />
-        <img id="2" src="~/Content/Pictures/Flower.jpg" border="0" alt="flower" />
-        <img id="3" src="~/Content/Pictures/Snowflake.jpg" border="0" alt="snow" />
-        <img id="4" src="~/Content/Pictures/Tree.jpg" border="0" alt="tree" />
-    </div>
-
-    <div class="col-md-4">
+    @*<div class="col-md-4">
         <h2>Getting started</h2>
-        <p> ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
             enables a clean separation of concerns and gives you full control over markup
             for enjoyable, agile development.
         </p>
@@ -59,8 +52,13 @@
         <h2>Web Hosting</h2>
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>*@
+    <div id="slideshow">
+        <img id="1" src="~/Content/Pictures/Sun.jpg" border="0" alt="sun"/>
+        <img id="2" src="~/Content/Pictures/Flower.jpg" border="0" alt="flower" />
+        <img id="3" src="~/Content/Pictures/Snowflake.jpg" border="0" alt="snow" />
+        <img id="4" src="~/Content/Pictures/Tree.jpg" border="0" alt="tree" />
     </div>
-    
 
 </div>
 </body>
