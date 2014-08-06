@@ -15,9 +15,38 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: LocationReview
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            var locationReviews = db.LocationReviews.Include(l => l.Location);
+            ViewBag.RatingSortParm = String.IsNullOrEmpty(sortOrder) ? "rating_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.LocationSortParm = String.IsNullOrEmpty(sortOrder) ? "location_desc" : "";
+
+            var locationReviews = from s in db.LocationReviews
+                                  select s;
+
+            switch(sortOrder)
+            {
+                case "rating_desc":
+                    locationReviews = locationReviews.OrderByDescending(s => s.LocationRating);
+                    break;
+
+                case "Date":
+                    locationReviews = locationReviews.OrderBy(s => s.LocationDate);
+                    break;
+
+                case "date_desc":
+                    locationReviews = locationReviews.OrderByDescending(s => s.LocationDate);
+                    break;
+
+                case "location_desc":
+                    locationReviews = locationReviews.OrderByDescending(s => s.Location.LocationName);
+                    break;
+
+                default:
+                    locationReviews = locationReviews.OrderBy(s => s.LocationRating);
+                    break;
+            }
+
             return View(locationReviews.ToList());
         }
 
@@ -37,7 +66,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: LocationReview/Create
-        public ActionResult Create()
+        public ActionResult Create(int Id)
         {
             ViewBag.LocationId = new SelectList(db.Locations, "Id", "LocationName");
             return View();

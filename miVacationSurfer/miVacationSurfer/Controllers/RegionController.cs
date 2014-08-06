@@ -15,12 +15,18 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: Region
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
            
             var regions = from s in db.Regions
                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                regions = regions.Where(s => s.RegionName.ToUpper().Contains(searchString.ToUpper())
+                    || s.RegionDesc.Contains(searchString));
+            }
             switch(sortOrder)
             {
                 case "name_desc":

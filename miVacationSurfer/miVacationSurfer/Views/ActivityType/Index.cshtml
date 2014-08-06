@@ -4,7 +4,7 @@
     ViewBag.Title = "ActivityType";
 }
 
-<h2>ActivityType</h2>
+<h2>Activity Type</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ActivityTypeName)
+            @Html.ActionLink("Activity Type", "Index", new { sortOrder =ViewBag.TypeSortParm})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ActivityTypeDesc)
+            Description
         </th>
         <th></th>
     </tr>

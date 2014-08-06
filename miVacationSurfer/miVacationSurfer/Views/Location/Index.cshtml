@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.LocationName)
+            @Html.ActionLink("Location", "Index", new { sortOrder = ViewBag.NameSortParm})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LocationDesc)
+            Description
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Size)
+            @Html.ActionLink("Size", "Index", new { sortOrder = ViewBag.SizeSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Region.RegionName)
+            @Html.ActionLink("Region", "Index", new { sortOrder = ViewBag.RegionSortParm })
         </th>
         <th></th>
     </tr>

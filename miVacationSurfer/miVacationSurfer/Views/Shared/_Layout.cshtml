@@ -26,16 +26,18 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Region", "Index", "Region")</li>
-                    <li>@Html.ActionLink("Location", "Index", "Location")</li>  
+                    <li>@Html.ActionLink("Location", "Index", "Location")</li>
+                    <li>@Html.ActionLink("LocationReview", "Index", "LocationReview")</li>    
                     <li>@Html.ActionLink("ActivityType", "Index", "ActivityType")</li>
                     <li>@Html.ActionLink("Season", "Index", "Season")</li>
                     <li>@Html.ActionLink("Activity", "Index", "Activity")</li>
-                    <li>@Html.ActionLink("ActivityReview", "Index", "Activity")</li>                 
+                    <li>@Html.ActionLink("ActivityReview", "Index", "ActivityReview")</li>                 
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+    <br><br><br>
     <div class="container body-content">
         @RenderBody()
         <hr />

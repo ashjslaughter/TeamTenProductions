@@ -15,9 +15,33 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: Location
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            var locations = db.Locations.Include(l => l.Region);
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.SizeSortParm = String.IsNullOrEmpty(sortOrder) ? "size_desc" : "";
+            ViewBag.RegionSortParm = String.IsNullOrEmpty(sortOrder) ? "region_desc" : "";
+
+            var locations = from s in db.Locations
+                          select s;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    locations = locations.OrderByDescending(s => s.LocationName);
+                    break;
+
+                case "size_desc":
+                    locations = locations.OrderByDescending(s => s.Size);
+                    break;
+
+                case "region_desc":
+                    locations = locations.OrderByDescending(s => s.Region.RegionName);
+                    break;
+
+                default:
+                    locations = locations.OrderBy(s => s.LocationName);
+                    break;
+            }
+            
             return View(locations.ToList());
         }
 
