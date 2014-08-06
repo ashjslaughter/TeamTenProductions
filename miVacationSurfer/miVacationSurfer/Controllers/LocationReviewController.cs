@@ -66,7 +66,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: LocationReview/Create
-        public ActionResult Create()
+        public ActionResult Create(int Id)
         {
             ViewBag.LocationId = new SelectList(db.Locations, "Id", "LocationName");
             return View();
