@@ -10,6 +10,14 @@
     @Scripts.Render("~/Content/jquery.js")
     @Scripts.Render("~/Content/slider.js")
 
+    <script language="JavaScript1.3" type="text/javascript"
+            src="~/Scripts/jse_form.js"></script>
+    @RenderSection("Search", required: false)
+
+    <script language="JavaScript1.3" type="text/javascript"
+            src="~/Scripts/jse_search.js"></script>
+    @RenderSection("Result", required: false)
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

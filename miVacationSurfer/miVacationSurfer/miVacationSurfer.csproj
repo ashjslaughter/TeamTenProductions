@@ -277,6 +277,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jse_form.js" />
+    <Content Include="Scripts\jse_search.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -368,6 +370,7 @@
     <Content Include="Views\SeasonActivity\Index.cshtml" />
     <Content Include="Views\ReviewViewModel\CreateReview.cshtml" />
     <Content Include="Views\Shared\_LocationReview.cshtml" />
+    <Content Include="Views\LocationReview\Results.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
