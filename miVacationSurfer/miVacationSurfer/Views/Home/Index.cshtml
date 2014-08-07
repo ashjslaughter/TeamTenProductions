@@ -42,8 +42,34 @@
 
 </div>
     <div class="row">
-
+        <div class="col-md-6" align="center">
+            <img src="~/Content/Pictures/L.jpg">
+            <p>Want to review a place you just visited?</p>
+            <p>Then click the button below to do a review of where you have been.</p>
+            <button type="button">
+           @Html.ActionLink("Talk About the Waves", "Create", "LocationReview")
+                </button>
+        </div>
+        <div class="col-md-6" align="center">
+            <img src="~/Content/Pictures/LS.jpg">
+            <p>Can't decide where to go?</p>
+            <p>Click the link to search for reviews for vacation spots you want to go.</p>
+            <button type="button">
+                @Html.ActionLink("Find the Waves", "Index", "Location")
+            </button>
+        </div>
     </div>
-    <script type="text/javascript" src="~/Content/jquery.js"></script>
-    <script type="text/javascript" src="~/Content/slider.js"></script>
+    <div class="row">
+        <div class="col-md-6" align="center">
+            <button type="button">
+                @Html.ActionLink("Experience the Waves", "Create", "ActivityReview")
+            </button>
+        </div>
+        <div class="col-md-6" align="center">
+            <button type="button">
+                @Html.ActionLink("Surf the Waves", "Index", "Activity")
+            </button>
+        </div>
+    </div>
+
 </body>
