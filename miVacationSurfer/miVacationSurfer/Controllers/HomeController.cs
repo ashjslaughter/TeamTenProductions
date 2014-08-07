@@ -20,6 +20,20 @@ namespace miVacationSurfer.Controllers
             return View();
         }
 
+        public ActionResult ChooseReview()
+        {
+            
+
+            return View();
+        }
+
+        public ActionResult ChooseVacation()
+        {
+
+
+            return View();
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
