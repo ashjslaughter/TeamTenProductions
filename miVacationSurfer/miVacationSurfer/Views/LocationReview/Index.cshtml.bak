@@ -18,22 +18,11 @@
     <input type="button" value="Go" onclick="search_form(jse_Form)">
 </form>
 
-
-
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
-    
 <table class="table">
     <tr>
-        <th>
-            @Html.ActionLink("Region", "Index", new { sortOrder = ViewBag.RegionSortParm })
-        </th>
-        <th>
-            @Html.ActionLink("Location", "Index", new { sortOrder = ViewBag.LocationSortParm })
-        </th>
         <th>
             @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm})
         </th>
@@ -49,18 +38,14 @@
         <th>
             Review Details
         </th>
-        
+        <th>
+            @Html.ActionLink("Location", "Index", new { sortOrder = ViewBag.LocationSortParm})
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location.Region.RegionName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location.LocationName)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.LocationRating)
         </td>
@@ -76,7 +61,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.LocationReviewDetails)
         </td>
-        
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.LocationName)
+        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
