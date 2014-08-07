@@ -66,56 +66,11 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: LocationReview/Create
-        public ActionResult Create()
+        public ActionResult Create(int Id)
         {
-            SelectList regions = new SelectList(db.Regions, "Id", "RegionName");
-            ViewData["regions"] = regions;
-            //ViewBag.LocationId = new SelectList(db.Locations, "Id", "LocationName");
+            ViewBag.LocationId = new SelectList(db.Locations, "Id", "LocationName");
             return View();
         }
-
-        [HttpPost]
-        public JsonResult GetLocations(string regionId)
-                {
-                    var regionLocationId = -1;
-                    int.TryParse(regionId, out regionLocationId);
-                  //List<SelectListItem> regionLocations = new List<SelectListItem>();
-                  //if (regionLocationId > 0)
-                  //   {
-                         //regionLocations =
-                         // (from r in db.Locations
-                         //  where r.RegionId == regionLocationId
-            //             //  select new SelectListItem {Text = r.LocationName, Value = r.Id.ToString()}) as List<SelectListItem>;
-                    List<SelectListItem> regionLocations = new List<SelectListItem>();
-                    regionLocations =
-                        (from r in db.Locations
-                         where r.RegionId == regionLocationId
-                         select new { r.LocationName, r.Id }).ToList()
-                         .Select(a => new SelectListItem{Text = a.LocationName, Value = a.Id.ToString()}).ToList();
-                         
-            return Json(regionLocations);
-        }
-        //public ActionResult SetLocationChoices (FormCollection collection)
-        //{
-        //    //var regionLocation = collection["Region"].ToString();
-        //    //var regionLocationId = -1;
-        //    //int.TryParse(regionLocation, out regionLocationId);
-
-        //    //if (regionLocationId > 0)
-        //    //{
-        //    //    var regionLocations =
-        //    //        from r in db.Locations
-        //    //        where r.RegionId == regionLocationId
-        //    //        select r;
-
-        //    //    ViewData["RegionId"] = new SelectList(regionLocations, "LocationId", "LocationName");
-        //        ViewBag.LocationId = new SelectList(regionLocations, "Id", "LocationName");
-                
-        //    }
-        //    return View();
-
-    
-        //}
 
         // POST: LocationReview/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
