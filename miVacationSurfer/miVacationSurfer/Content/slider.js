@@ -17,6 +17,6 @@ function startSlide() {
         $("#slideshow > img").fadeOut(300);
         $("#slideshow > img#" + slideNext).fadeIn(300);
         slideInt = slideNext;
-        slideNext = slideNext+1;
+        slideNext = slideNext + 1;
     },3000);
 }
