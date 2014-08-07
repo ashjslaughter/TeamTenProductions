@@ -3,13 +3,10 @@
     margin:0 auto;
 }
 
-#window{
-    width:200px;
-    width:200px;
-}
+
 #slideshow{
-    width: 450px;
-    height:450px;
+    width: 1140px;
+    height:340px;
     overflow: hidden;
     margin: 30px auto;
 
@@ -17,8 +14,8 @@
 
 
 #slideshow > img{
-    width: 450px;
-    height:450px;
+    width: 1140px;
+    height:340px;
     float:left;
     display:none;
 }
