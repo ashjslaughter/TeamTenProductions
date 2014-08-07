@@ -241,6 +241,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Pictures\A.jpg" />
+    <Content Include="Content\Pictures\AR.jpg" />
     <Content Include="Content\Pictures\L.jpg" />
     <Content Include="Content\Pictures\LS.jpg" />
     <Content Include="Content\Pictures\Vacation Surfer.jpg" />

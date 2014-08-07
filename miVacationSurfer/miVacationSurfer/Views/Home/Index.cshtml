@@ -46,29 +46,35 @@
             <img src="~/Content/Pictures/L.jpg">
             <p>Want to review a place you just visited?</p>
             <p>Then click the button below to do a review of where you have been.</p>
-            <button type="button">
+           <p> <button type="button">
            @Html.ActionLink("Talk About the Waves", "Create", "LocationReview")
-                </button>
+                </button></p>
         </div>
         <div class="col-md-6" align="center">
             <img src="~/Content/Pictures/LS.jpg">
             <p>Can't decide where to go?</p>
             <p>Click the link to search for reviews for vacation spots you want to go.</p>
-            <button type="button">
-                @Html.ActionLink("Find the Waves", "Index", "Location")
-            </button>
+            <p><button type="button">
+                @Html.ActionLink("Find Some Waves", "Index", "Location")
+            </button></p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6" align="center">
-            <button type="button">
+            <img src="~/Content/Pictures/A.jpg">
+            <p>Want to talk about your favorite activity?</p>
+            <p>Head to this page to talk about the activities you experienced.</p>
+            <p><button type="button">
                 @Html.ActionLink("Experience the Waves", "Create", "ActivityReview")
-            </button>
+            </button></p>
         </div>
         <div class="col-md-6" align="center">
-            <button type="button">
+            <img src="~/Content/Pictures/AR.jpg">
+            <p>Don't know what to do?</p>
+            <p>Come here to read some reviews of the activities of a specific place.</p>
+            <p><button type="button">
                 @Html.ActionLink("Surf the Waves", "Index", "Activity")
-            </button>
+            </button></p>
         </div>
     </div>
 

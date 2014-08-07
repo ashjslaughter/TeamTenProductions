@@ -28,11 +28,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="~/Content/Pictures/Vactaion Surfer.jpg">
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <img src="~/Content/Pictures/Vactaion Surfer.jpg"/>
+                @Html.ActionLink("MI Vacation Surfer", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                @*<ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Region", "Index", "Region")</li>
@@ -42,7 +42,7 @@
                     <li>@Html.ActionLink("Season", "Index", "Season")</li>
                     <li>@Html.ActionLink("Activity", "Index", "Activity")</li>
                     <li>@Html.ActionLink("ActivityReview", "Index", "ActivityReview")</li>                 
-                </ul>
+                </ul>*@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
