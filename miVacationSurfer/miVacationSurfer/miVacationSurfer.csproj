@@ -245,7 +245,7 @@
     <Content Include="Content\Pictures\AR.jpg" />
     <Content Include="Content\Pictures\L.jpg" />
     <Content Include="Content\Pictures\LS.jpg" />
-    <Content Include="Content\Pictures\Vacation Surfer.jpg" />
+    <Content Include="Content\Pictures\VacationSurfer.jpg" />
     <Content Include="Content\showtime.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
