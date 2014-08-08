@@ -21,6 +21,26 @@ namespace miVacationSurfer.Controllers
 
             var activityReviews = db.ActivityReviews.Include(a => a.Activity);
 
+            if (!String.IsNullOrEmpty(searchString))
+            {
+
+                DateTime temp;
+                if (DateTime.TryParse(searchString, out temp))
+                {
+
+                }
+
+                int tempRating;
+                if (Int32.TryParse(searchString, out tempRating)) { }
+
+                activityReviews = activityReviews.Where(s => ((s.ActivityRating >= 1 || s.ActivityRating <= 5) && (s.ActivityRating == tempRating))
+                    || (temp != null && (s.ActivityDate >= temp && s.ActivityDate <= temp))
+                    || s.ActivityPro.Contains(searchString)
+                    || s.ActivityCon.Contains(searchString)
+                    || s.ActivityReviewDetails.Contains(searchString)
+                    || s.Activity.ActivityName.Contains(searchString));
+            }
+
             return View(activityReviews.ToList());
         }
 
