@@ -6,12 +6,13 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/showtime.css")
+    @Scripts.Render("~/Content/jquery.js")
+    @Scripts.Render("~/Content/slider.js")
 
     <script language="JavaScript1.3" type="text/javascript"
             src="~/Scripts/jse_form.js"></script>
     @RenderSection("Search", required: false)
-
 
     <script language="JavaScript1.3" type="text/javascript"
             src="~/Scripts/jse_search.js"></script>

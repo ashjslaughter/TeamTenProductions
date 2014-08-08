@@ -10,10 +10,36 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+    <form>
     <div class="form-horizontal">
         <h4>ActivityReview</h4>
         <hr />
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActivityTypes, "ActivityTypeId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ActivityTypeId", (SelectList)ViewData["activityTypes"], htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ActivityTypes, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Seasons, "SeasonId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("SeasonId", new SelectList(string.Empty, "SeasonId", "SeasonName"), "Please Select an Season", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Seasons, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.ActivityId, "ActivityId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ActivityId", new SelectList(string.Empty, "ActivityId", "ActivityName"), "Please Select an Activity", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ActivityId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.ActivityRating, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -56,25 +82,88 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ActivityId, "ActivityId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ActivityId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ActivityId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
+    </form>
 }
 
+    
+ 
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Dropdownlist Selectedchange event
+        $("#ActivityTypeId").change(function () {
+            $("#SeasonId").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetSeasons")', // we are calling json method
+
+                dataType: 'json',
+
+                data: { activitytypeId: $("#ActivityTypeId").val() },
+                // here we are get value of selected country and passing same valueas inputto json method GetStates.
+
+                success: function (activityTypeSeasons) {
+                    // states contains the JSON formatted list
+                    // of states passed from the controller
+
+                    $.each(activityTypeSeasons, function (i, season) {
+                        $("#SeasonId").append('<option value="' + season.Value + '">' +
+                             season.Text + '</option>');
+                        // here we are adding option for Activity
+
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve activities.' + ex);
+                }
+            });
+            return false;
+        })
+    });
+
+
+
+
+    $(document).ready(function () {
+        //Dropdownlist Selectedchange event
+        $("#SeasonId").change(function () {
+            $("#ActivityId").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetActivitys")', // we are calling json method
+
+                dataType: 'json',
+
+                data: { seasonId: $("#SeasonId").val() },
+               // here we are get value of selected country and passing same valueas inputto json method GetStates.
+
+                success: function (seasonActivitys) {
+                    // states contains the JSON formatted list
+                    // of states passed from the controller
+
+                    $.each(seasonActivitys, function (i, activity) {
+                    $("#ActivityId").append('<option value="' + activity.Value + '">' +
+                         activity.Text + '</option>');
+                    // here we are adding option for Activity
+
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve activities.' + ex);
+                }
+            });
+            return false;
+        })
+    });
+</script>
 }
