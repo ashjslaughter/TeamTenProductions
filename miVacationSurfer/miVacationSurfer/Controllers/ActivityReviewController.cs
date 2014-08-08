@@ -16,22 +16,12 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: ActivityReview
-        public ActionResult Index(string filterIt, string searchString, int? page)
+        public ActionResult Index(string filterIt, string searchString)
         {
-            if(searchString !=null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = filterIt;
-            }
-            ViewBag.CurrentFilter = searchString;
+
             var activityReviews = db.ActivityReviews.Include(a => a.Activity);
 
-            int pageSize = 5;
-            int pageNumber = (page ?? 1);
-            return View(activityReviews.ToPagedList(pageNumber, pageSize));
+            return View(activityReviews.ToList());
         }
 
         // GET: ActivityReview/Details/5
