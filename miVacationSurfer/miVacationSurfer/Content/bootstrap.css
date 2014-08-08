@@ -308,9 +308,12 @@ th {
 }
 .glyphicon-star:before {
   content: "\e006";
+  color: yellow;
+  font-size: xx-large;
 }
 .glyphicon-star-empty:before {
   content: "\e007";
+  font-size: xx-large;
 }
 .glyphicon-user:before {
   content: "\e008";
