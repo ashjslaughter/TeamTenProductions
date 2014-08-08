@@ -31,7 +31,7 @@ namespace miVacationSurfer.Controllers
 
             int pageSize = 5;
             int pageNumber = (page ?? 1);
-            return View(activityReviews.ToList());
+            return View(activityReviews.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: ActivityReview/Details/5
