@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using miVacationSurfer;
+using PagedList;
 
 namespace miVacationSurfer.Controllers
 {
@@ -15,7 +16,7 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: LocationReview
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string sortOrder,  string searchString )
         {
             ViewBag.RatingSortParm = String.IsNullOrEmpty(sortOrder) ? "rating_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
