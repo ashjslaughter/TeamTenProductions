@@ -11,6 +11,7 @@ namespace miVacationSurfer
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Region
     {
@@ -20,7 +21,11 @@ namespace miVacationSurfer
         }
     
         public int Id { get; set; }
+
+        [Display(Name = "Region")]
         public string RegionName { get; set; }
+
+        [Display(Name = "Description")]
         public string RegionDesc { get; set; }
     
         public virtual ICollection<Location> Locations { get; set; }

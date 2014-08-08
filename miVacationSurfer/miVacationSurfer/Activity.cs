@@ -11,6 +11,7 @@ namespace miVacationSurfer
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Activity
     {
@@ -21,7 +22,11 @@ namespace miVacationSurfer
         }
     
         public int Id { get; set; }
+
+        [Display(Name = "Activity")]
         public string ActivityName { get; set; }
+
+        [Display(Name = "Description")]
         public string ActivityDesc { get; set; }
     
         public virtual ICollection<ActivityReview> ActivityReviews { get; set; }

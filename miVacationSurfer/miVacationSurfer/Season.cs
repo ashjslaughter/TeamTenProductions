@@ -11,6 +11,7 @@ namespace miVacationSurfer
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Season
     {
@@ -21,6 +22,8 @@ namespace miVacationSurfer
         }
     
         public int Id { get; set; }
+
+        [Display(Name = "Season")]
         public string SeasonName { get; set; }
     
         public virtual ICollection<ActivityTypeSeason> ActivityTypeSeasons { get; set; }

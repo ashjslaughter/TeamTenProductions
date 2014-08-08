@@ -36,6 +36,8 @@ namespace miVacationSurfer.Controllers
             {
                 return HttpNotFound();
             }
+
+
             return View(activityReview);
         }
 

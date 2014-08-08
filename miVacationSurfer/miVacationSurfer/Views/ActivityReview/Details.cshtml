@@ -1,4 +1,7 @@
 ﻿@model miVacationSurfer.ActivityReview
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "27658bba-f817-4037-b5b8-c389fb4d9d62", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 
 @{
     ViewBag.Title = "Details";
@@ -10,6 +13,15 @@
     <h4>ActivityReview</h4>
     <hr />
     <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Activity.ActivityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activity.ActivityName)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.ActivityRating)
         </dt>
@@ -50,15 +62,18 @@
             @Html.DisplayFor(model => model.ActivityReviewDetails)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Activity.ActivityName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Activity.ActivityName)
-        </dd>
 
     </dl>
+
+</div>
+<div class="form-group">
+<span class='st_sharethis_large'></span>
+<span class='st_facebook_large'></span>
+<span class='st_twitter_large'></span>
+<span class='st_linkedin_large'></span>
+<span class='st_pinterest_large'></span>
+<span class='st_email_large'></span>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
