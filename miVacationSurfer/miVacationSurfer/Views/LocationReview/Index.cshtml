@@ -37,7 +37,7 @@
         <th>
             @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm})
         </th>
-        <th>
+        @*<th>
             Pros
         </th>
         <th>
@@ -45,7 +45,7 @@
         </th>
         <th>
             Review Details
-        </th>
+        </th>*@
         
         <th></th>
     </tr>
@@ -64,7 +64,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.LocationDate)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.LocationPro)
         </td>
         <td>
@@ -72,7 +72,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.LocationReviewDetails)
-        </td>
+        </td>*@
         
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
