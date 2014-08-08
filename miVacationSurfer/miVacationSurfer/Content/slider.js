@@ -2,7 +2,7 @@
 slideNext = 2;
 
 $(document).ready(function() {
-    $("#slideshow > img#1").fadeIn(300);
+    $("#slideshow > img#1").fadeIn("slow");
     startSlide();
 });
 
@@ -14,9 +14,9 @@ function startSlide() {
             slideInt = 1;
         }
 
-        $("#slideshow > img").fadeOut(300);
-        $("#slideshow > img#" + slideNext).fadeIn(300);
+        $("#slideshow > img").fadeOut("slow");
+        $("#slideshow > img#" + slideNext).fadeIn("slow");
         slideInt = slideNext;
         slideNext = slideNext + 1;
-    },3000);
+    },5000);
 }
