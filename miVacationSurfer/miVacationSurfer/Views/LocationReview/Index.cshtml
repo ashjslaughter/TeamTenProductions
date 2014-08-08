@@ -1,86 +1,92 @@
-﻿@model IEnumerable<miVacationSurfer.LocationReview>
+﻿@model PagedList.IPagedList<miVacationSurfer.LocationReview>
+    @using PagedList.Mvc;
+    <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
-@{
-    ViewBag.Title = "Location Review";
-}
+    @{
+        ViewBag.Title = "Location Review";
+    }
 
-<h2>Location Review</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-@using (Html.BeginForm())
-{
+    <h2>Location Review</h2>
 
     <p>
-
-        Search Location Review: @Html.TextBox("SearchString")
-
-        <input type="submit" value="Search" />
-
+        @Html.ActionLink("Create New", "Create")
     </p>
 
-}
-    
-<table class="table">
-    <tr>
-        <th>
-            @Html.ActionLink("Region", "Index", new { sortOrder = ViewBag.RegionSortParm })
-        </th>
-        <th>
-            @Html.ActionLink("Location", "Index", new { sortOrder = ViewBag.LocationSortParm })
-        </th>
-        <th>
-            @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm})
-        </th>
-        <th>
-            @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm})
-        </th>
-        @*<th>
-            Pros
-        </th>
-        <th>
-            Cons
-        </th>
-        <th>
-            Review Details
-        </th>*@
+    @using (Html.BeginForm("Index", "LocationReview", FormMethod.Get))
+    {
 
-        
-        <th></th>
-    </tr>
+        <p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location.Region.RegionName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location.LocationName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationRating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationDate)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.LocationPro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationCon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationReviewDetails)
-        </td>*@
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+            Search Location Review: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
 
-</table>
+            <input type="submit" value="Search" />
+
+        </p>
+
+    }
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Region", "Index", new { sortOrder = ViewBag.RegionSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Location", "Index", new { sortOrder = ViewBag.LocationSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+            </th>
+            @*<th>
+                    Pros
+                </th>
+                <th>
+                    Cons
+                </th>
+                <th>
+                    Review Details
+                </th>*@
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location.Region.RegionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location.LocationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationDate)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.LocationPro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocationCon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocationReviewDetails)
+                    </td>*@
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
