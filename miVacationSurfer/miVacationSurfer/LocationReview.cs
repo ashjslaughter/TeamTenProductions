@@ -17,6 +17,7 @@ namespace miVacationSurfer
     {
         public int Id { get; set; }
 
+        [Required]
         [Display(Name = "Rating")]
         public int LocationRating { get; set; }
 
@@ -25,9 +26,18 @@ namespace miVacationSurfer
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime LocationDate { get; set; }
 
+        [Required]
+        [Display(Name = "Pros")]
         public string LocationPro { get; set; }
+
+        [Required]
+        [Display(Name = "Cons")]
         public string LocationCon { get; set; }
+
+        [Display(Name = "Details")]
         public string LocationReviewDetails { get; set; }
+
+        [Display(Name = "Location")]
         public int LocationId { get; set; }
     
         public virtual Location Location { get; set; }

@@ -11,6 +11,7 @@ namespace miVacationSurfer
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Location
     {
@@ -19,11 +20,18 @@ namespace miVacationSurfer
             this.LocationActivityTypes = new HashSet<LocationActivityType>();
             this.LocationReviews = new HashSet<LocationReview>();
         }
-    
+
+        [Display(Name = "Location")]
         public int Id { get; set; }
+
+        [Display(Name = "Location")]
         public string LocationName { get; set; }
+
+        [Display(Name = "Description")]
         public string LocationDesc { get; set; }
         public string Size { get; set; }
+
+        [Display(Name = "Region")]
         public int RegionId { get; set; }
     
         public virtual Region Region { get; set; }
