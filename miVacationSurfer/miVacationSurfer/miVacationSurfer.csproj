@@ -191,7 +191,6 @@
     <Compile Include="Controllers\ActivityReviewController.cs" />
     <Compile Include="Controllers\ActivityTypeController.cs" />
     <Compile Include="Controllers\ActivityTypeSeasonController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationActivityTypeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\LocationReviewController.cs" />
@@ -287,8 +286,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\jse_form.js" />
-    <Content Include="Scripts\jse_search.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -382,7 +379,6 @@
     <Content Include="Views\SeasonActivity\Index.cshtml" />
     <Content Include="Views\ReviewViewModel\CreateReview.cshtml" />
     <Content Include="Views\Shared\_LocationReview.cshtml" />
-    <Content Include="Views\Home\Results.cshtml" />
     <Content Include="Views\Home\ChooseReview.cshtml" />
     <Content Include="Views\Home\ChooseVacation.cshtml" />
   </ItemGroup>
