@@ -5,6 +5,20 @@
 
 <h2>Activity Review</h2>
 
+@using (Html.BeginForm())
+{
+
+    <p>
+
+        Search Activity Review: @Html.TextBox("SearchString")
+
+        <input type="submit" value="Search" />
+
+    </p>
+
+}
+
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
