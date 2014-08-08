@@ -5,26 +5,23 @@
 }
 
 <h2>Location Review</h2>
-@section Search
-{
-    <script language="JavaScript1.3" type="text/javascript"
-            src="~/Scripts/jse_form.js"></script>
-}
-
-
-
-<form name="jse_Form">
-    <input type="text" name="d">
-    <input type="button" value="Go" onclick="search_form(jse_Form)">
-</form>
-
-
-
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
+@using (Html.BeginForm())
+{
+
+    <p>
+
+        Search Location Review: @Html.TextBox("SearchString")
+
+        <input type="submit" value="Search" />
+
+    </p>
+
+}
     
 <table class="table">
     <tr>

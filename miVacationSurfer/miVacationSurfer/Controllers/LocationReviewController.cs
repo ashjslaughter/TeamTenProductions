@@ -15,7 +15,7 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: LocationReview
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.RatingSortParm = String.IsNullOrEmpty(sortOrder) ? "rating_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
@@ -23,6 +23,29 @@ namespace miVacationSurfer.Controllers
 
             var locationReviews = from s in db.LocationReviews
                                   select s;
+
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+
+                DateTime temp;
+                if (DateTime.TryParse(searchString, out temp))
+                {
+
+                }
+
+                int tempRating;
+                if (Int32.TryParse(searchString, out tempRating)) { }
+
+                locationReviews = locationReviews.Where(s => s.Location.Region.RegionName.ToUpper().Contains(searchString.ToUpper())
+                    || s.Location.LocationName.Contains(searchString)
+                    || (temp != null && (s.LocationDate >= temp && s.LocationDate <= temp))
+                    || ((s.LocationRating >= 1 || s.LocationRating <= 5) && (s.LocationRating == tempRating))
+                    || s.LocationPro.Contains(searchString)
+                    || s.LocationCon.Contains(searchString)
+                    || s.LocationReviewDetails.Contains(searchString));
+            }
+
 
             switch (sortOrder)
             {
