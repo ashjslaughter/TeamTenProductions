@@ -2,7 +2,7 @@
 // ---------- script properties ----------
 
 
-var results_location = "Results";
+var results_location = "/Home/Results";
 
 
 // ---------- end of script properties ----------

@@ -372,7 +372,7 @@
     <Content Include="Views\SeasonActivity\Index.cshtml" />
     <Content Include="Views\ReviewViewModel\CreateReview.cshtml" />
     <Content Include="Views\Shared\_LocationReview.cshtml" />
-    <Content Include="Views\LocationReview\Results.cshtml" />
+    <Content Include="Views\Home\Results.cshtml" />
     <Content Include="Views\Home\ChooseReview.cshtml" />
     <Content Include="Views\Home\ChooseVacation.cshtml" />
   </ItemGroup>

@@ -1,0 +1,30 @@
+﻿
+
+@{
+    ViewBag.Title = "Results";
+}
+
+<h2>Results</h2>
+@section Search
+{
+    <script language="JavaScript1.3" type="text/javascript"
+            src="~/Scripts/jse_form.js"></script>
+}
+@section Result
+{
+<script language="JavaScript1.3" type="text/javascript"
+        src="~/Scripts/jse_search.js"></script>
+}
+<form name="jse_Form">
+    <input type="text" name="d">
+    <input type="button" value="Go" onclick="search_form(jse_Form)">
+</form>
+<script language="JavaScript1.3" type="text/javascript">
+out_jse()
+</script>
+
+
+
+
+
+

@@ -10,9 +10,9 @@ var bold = 0;
 
 var s = new Array();
 
-s[0] = "JSE^form.html^Enter JSE in the example above ...^open source, free, client side";
+s[0] = "HOME^Home/Index^ home, search, find, hoome, ome, mivacationsurfer";
 s[1] = "JSE DOCUMENTATION^doc.txt^JSE is a client-side local site search engine. Written entirely in JavaScript 1.3 it works with browsers from Netscape 4.7 to Microsoft Internet Explorer 6.0 ...^ faq, docs, instructions";
-s[2] = "POPULAR LOCATIONS^Location/Index^ Popular Michigan vacation destinations.^popular, location, locations, destinations, mackinaw";
+s[2] = "POPULAR LOCATIONS^LocationReview/Index^ Popular Michigan vacation destinations.^popular, location, locations, destinations, mackinaw, traverse";
 
 // ---------- end of script properties and sites ----------
 
@@ -107,7 +107,7 @@ function num_jse() {
 
 function out_jse() {
 	if (co == 0) {
-		document.write('Your search did not match any documents.<p>Make sure all keywords are spelt correctly.<br>Try different or more general keywords.');
+		document.write('Your search did not match any documents.<p>Make sure all keywords are spelled correctly.<br>Try different or more general keywords.');
 		return;
 	}
 	for (var a = 0; a < r.length; a++) {

@@ -72,45 +72,7 @@ namespace miVacationSurfer.Controllers
 
             return View(locationReviews.ToList());
         }
-        public ActionResult Results(string sortOrder)
-        {
-            ViewBag.RatingSortParm = String.IsNullOrEmpty(sortOrder) ? "rating_desc" : "";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            ViewBag.LocationSortParm = String.IsNullOrEmpty(sortOrder) ? "location_desc" : "";
-            ViewBag.RegionSortParm = String.IsNullOrEmpty(sortOrder) ? "region_desc" : "";
-
-            var locationReviews = from s in db.LocationReviews
-                                  select s;
-
-            switch (sortOrder)
-            {
-                case "rating_desc":
-                    locationReviews = locationReviews.OrderByDescending(s => s.LocationRating);
-                    break;
-
-                case "Date":
-                    locationReviews = locationReviews.OrderBy(s => s.LocationDate);
-                    break;
-
-                case "date_desc":
-                    locationReviews = locationReviews.OrderByDescending(s => s.LocationDate);
-                    break;
-
-                case "location_desc":
-                    locationReviews = locationReviews.OrderByDescending(s => s.Location.LocationName);
-                    break;
-
-                case "region_desc":
-                    locationReviews = locationReviews.OrderByDescending(s => s.Location.Region.RegionName);
-                    break;
-
-                default:
-                    locationReviews = locationReviews.OrderBy(s => s.LocationRating);
-                    break;
-            }
-
-            return View(locationReviews.ToList());
-        }
+        
 
         // GET: LocationReview/Details/5
         public ActionResult Details(int? id)

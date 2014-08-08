@@ -12,6 +12,10 @@ namespace miVacationSurfer.Controllers
         {
             return View();
         }
+        public ActionResult Results()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {
