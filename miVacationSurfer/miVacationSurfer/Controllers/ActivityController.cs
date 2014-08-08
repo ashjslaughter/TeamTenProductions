@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using miVacationSurfer;
 
+
 namespace miVacationSurfer.Controllers
 {
     public class ActivityController : Controller
@@ -15,6 +16,7 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: Activity
+        [Authorize(Roles="superUser")]
         public ActionResult Index()
         {
             return View(db.Activities.ToList());
