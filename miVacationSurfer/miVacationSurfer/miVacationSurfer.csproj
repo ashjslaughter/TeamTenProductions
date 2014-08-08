@@ -191,6 +191,7 @@
     <Compile Include="Controllers\ActivityReviewController.cs" />
     <Compile Include="Controllers\ActivityTypeController.cs" />
     <Compile Include="Controllers\ActivityTypeSeasonController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationActivityTypeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\LocationReviewController.cs" />
