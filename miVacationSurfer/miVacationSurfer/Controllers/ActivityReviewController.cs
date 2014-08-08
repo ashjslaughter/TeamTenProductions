@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using miVacationSurfer;
 
 namespace miVacationSurfer.Controllers
@@ -15,10 +16,22 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: ActivityReview
-        public ActionResult Index()
+        public ActionResult Index(string filterIt, string searchString, int? page)
         {
+            if(searchString !=null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = filterIt;
+            }
+            ViewBag.CurrentFilter = searchString;
             var activityReviews = db.ActivityReviews.Include(a => a.Activity);
-            return View(activityReviews.ToList());
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(activityReviews.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: ActivityReview/Details/5
