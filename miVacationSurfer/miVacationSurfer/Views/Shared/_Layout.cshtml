@@ -10,13 +10,7 @@
     @Scripts.Render("~/Content/jquery.js")
     @Scripts.Render("~/Content/slider.js")
 
-    <script language="JavaScript1.3" type="text/javascript"
-            src="~/Scripts/jse_form.js"></script>
-    @RenderSection("Search", required: false)
-
-    <script language="JavaScript1.3" type="text/javascript"
-            src="~/Scripts/jse_search.js"></script>
-    @RenderSection("Result", required: false)
+    
 
 </head>
 <body>
@@ -43,18 +37,7 @@
                     <li>@Html.ActionLink("Location Review", "Index", "LocationReview")</li>
                     <li>@Html.ActionLink("Activities", "Index", "Activity")</li>
                     <li>@Html.ActionLink("Activity Reviews", "Index", "ActivityReview")</li>*@
-                    <li>@section Search
-{
-    <script language="JavaScript1.3" type="text/javascript"
-            src="~/Scripts/jse_form.js"></script>
-                    }
-
-
-
-                    <form name="jse_Form">
-                        <input type="text" name="d">
-                        <input type="button" value="Go" onclick="search_form(jse_Form)">
-                    </form></li>
+                    
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
