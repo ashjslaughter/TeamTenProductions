@@ -11,12 +11,20 @@ namespace miVacationSurfer
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class LocationReview
     {
         public int Id { get; set; }
+
+        [Display(Name = "Rating")]
         public int LocationRating { get; set; }
+
+        [Display(Name = "Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime LocationDate { get; set; }
+
         public string LocationPro { get; set; }
         public string LocationCon { get; set; }
         public string LocationReviewDetails { get; set; }
