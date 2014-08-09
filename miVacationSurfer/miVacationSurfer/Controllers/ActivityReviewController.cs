@@ -16,8 +16,7 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: ActivityReview
-<<<<<<< HEAD
-        public ActionResult Index(string currentFilter, string searchString, int? page)
+        public ActionResult Index(string currentFilter, string sortOrder, string searchString, int? page)
         {
             if (searchString != null)
             {
@@ -27,13 +26,7 @@ namespace miVacationSurfer.Controllers
             {
                 searchString = currentFilter;
             }
-        }
-        public ActionResult Index(string filterIt, string sortOrder, string searchString)
-        {
-=======
-        public ActionResult Index(string filterIt, string sortOrder, string searchString)
-        {
->>>>>>> origin/master
+
             ViewBag.RatingSortParm = String.IsNullOrEmpty(sortOrder) ? "rating_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.ActivitySortParm = String.IsNullOrEmpty(sortOrder) ? "activity_desc" : "";
@@ -61,12 +54,10 @@ namespace miVacationSurfer.Controllers
                     || s.Activity.ActivityName.Contains(searchString));
             }
 
-<<<<<<< HEAD
             int pageSize = 3;
             int pageNumber = (page ?? 1);
             return View(activityReviews.ToPagedList(pageNumber, pageSize));
-=======
->>>>>>> origin/master
+
             switch (sortOrder)
             {
                 case "rating_desc":
