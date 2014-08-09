@@ -15,6 +15,7 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: Season
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Index(string sortOrder)
         {
             ViewBag.SeasonSortParm = String.IsNullOrEmpty(sortOrder) ? "season_desc" : "";
@@ -33,6 +34,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: Season/Details/5
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -48,6 +50,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: Season/Create
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Create()
         {
             return View();
@@ -56,6 +59,7 @@ namespace miVacationSurfer.Controllers
         // POST: Season/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Users = "team10@team10.com")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,SeasonName")] Season season)
@@ -71,6 +75,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: Season/Edit/5
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -88,6 +93,7 @@ namespace miVacationSurfer.Controllers
         // POST: Season/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Users = "team10@team10.com")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,SeasonName")] Season season)
@@ -102,6 +108,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: Season/Delete/5
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -117,6 +124,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // POST: Season/Delete/5
+        [Authorize(Users = "team10@team10.com")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

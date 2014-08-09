@@ -180,6 +180,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // POST: ActivityReview/Delete/5
+        [Authorize(Users = "team10@team10.com")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
