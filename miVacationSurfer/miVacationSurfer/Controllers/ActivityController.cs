@@ -16,13 +16,14 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: Activity
-        [Authorize(Roles="superUser")]
+        [Authorize(Users="team10@team10.com")]
         public ActionResult Index()
         {
             return View(db.Activities.ToList());
         }
 
         // GET: Activity/Details/5
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,6 +39,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: Activity/Create
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +48,7 @@ namespace miVacationSurfer.Controllers
         // POST: Activity/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Users = "team10@team10.com")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,ActivityName,ActivityDesc")] Activity activity)
@@ -61,6 +64,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: Activity/Edit/5
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +82,7 @@ namespace miVacationSurfer.Controllers
         // POST: Activity/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Users = "team10@team10.com")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,ActivityName,ActivityDesc")] Activity activity)
@@ -92,6 +97,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: Activity/Delete/5
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +113,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // POST: Activity/Delete/5
+        [Authorize(Users = "team10@team10.com")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

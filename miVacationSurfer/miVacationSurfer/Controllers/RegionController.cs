@@ -15,6 +15,7 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: Region
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -42,6 +43,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: Region/Details/5
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -57,6 +59,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: Region/Create
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Create()
         {
             return View();
@@ -80,6 +83,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: Region/Edit/5
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -97,6 +101,7 @@ namespace miVacationSurfer.Controllers
         // POST: Region/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Users = "team10@team10.com")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,RegionName,RegionDesc")] Region region)
@@ -111,6 +116,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // GET: Region/Delete/5
+        [Authorize(Users = "team10@team10.com")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -126,6 +132,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // POST: Region/Delete/5
+        [Authorize(Users = "team10@team10.com")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

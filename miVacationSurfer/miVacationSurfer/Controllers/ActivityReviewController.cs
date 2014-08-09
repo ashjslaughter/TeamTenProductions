@@ -16,6 +16,7 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: ActivityReview
+<<<<<<< HEAD
         public ActionResult Index(string currentFilter, string searchString, int? page)
         {
             if (searchString != null)
@@ -26,6 +27,13 @@ namespace miVacationSurfer.Controllers
             {
                 searchString = currentFilter;
             }
+=======
+        public ActionResult Index(string filterIt, string sortOrder, string searchString)
+        {
+            ViewBag.RatingSortParm = String.IsNullOrEmpty(sortOrder) ? "rating_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.ActivitySortParm = String.IsNullOrEmpty(sortOrder) ? "activity_desc" : "";
+>>>>>>> origin/master
 
             ViewBag.CurrentFilter = searchString;
             var activityReviews = db.ActivityReviews.Include(a => a.Activity);
@@ -50,9 +58,32 @@ namespace miVacationSurfer.Controllers
                     || s.Activity.ActivityName.Contains(searchString));
             }
 
+<<<<<<< HEAD
             int pageSize = 3;
             int pageNumber = (page ?? 1);
             return View(activityReviews.ToPagedList(pageNumber, pageSize));
+=======
+            switch (sortOrder)
+            {
+                case "rating_desc":
+                    activityReviews = activityReviews.OrderByDescending(s => s.ActivityRating);
+                    break;
+
+                case "Date":
+                    activityReviews = activityReviews.OrderBy(s => s.ActivityDate);
+                    break;
+
+                case "activity_desc":
+                    activityReviews = activityReviews.OrderByDescending(s => s.Activity.ActivityName);
+                    break;
+
+                default:
+                    activityReviews = activityReviews.OrderBy(s => s.ActivityRating);
+                    break;
+            }
+
+            return View(activityReviews.ToList());
+>>>>>>> origin/master
         }
 
         // GET: ActivityReview/Details/5
@@ -191,6 +222,7 @@ namespace miVacationSurfer.Controllers
         }
 
         // POST: ActivityReview/Delete/5
+        [Authorize(Users = "team10@team10.com")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
