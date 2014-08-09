@@ -21,6 +21,7 @@
     }
 
 
+<<<<<<< HEAD
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -46,6 +47,33 @@
             </th>
             <th></th>
         </tr>
+=======
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ActivityPro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActivityCon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActivityReviewDetails)
+        </th>*@
+        <th>
+            @Html.ActionLink("ActivityName", "Index", new { sortOrder = ViewBag.ActivitySortParm })
+        </th>
+        <th></th>
+    </tr>
+>>>>>>> origin/master
 
         @foreach (var item in Model)
         {
