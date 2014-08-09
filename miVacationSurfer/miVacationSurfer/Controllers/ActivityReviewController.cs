@@ -16,9 +16,18 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: ActivityReview
-        public ActionResult Index(string filterIt, string searchString)
+        public ActionResult Index(string currentFilter, string searchString, int? page)
         {
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
 
+            ViewBag.CurrentFilter = searchString;
             var activityReviews = db.ActivityReviews.Include(a => a.Activity);
 
             if (!String.IsNullOrEmpty(searchString))
@@ -41,7 +50,9 @@ namespace miVacationSurfer.Controllers
                     || s.Activity.ActivityName.Contains(searchString));
             }
 
-            return View(activityReviews.ToList());
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(activityReviews.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: ActivityReview/Details/5
