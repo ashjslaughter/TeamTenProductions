@@ -16,8 +16,11 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: ActivityReview
-        public ActionResult Index(string filterIt, string searchString)
+        public ActionResult Index(string filterIt, string sortOrder, string searchString)
         {
+            ViewBag.RatingSortParm = String.IsNullOrEmpty(sortOrder) ? "rating_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.ActivitySortParm = String.IsNullOrEmpty(sortOrder) ? "activity_desc" : "";
 
             var activityReviews = db.ActivityReviews.Include(a => a.Activity);
 
@@ -39,6 +42,25 @@ namespace miVacationSurfer.Controllers
                     || s.ActivityCon.Contains(searchString)
                     || s.ActivityReviewDetails.Contains(searchString)
                     || s.Activity.ActivityName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "rating_desc":
+                    activityReviews = activityReviews.OrderByDescending(s => s.ActivityRating);
+                    break;
+
+                case "Date":
+                    activityReviews = activityReviews.OrderBy(s => s.ActivityDate);
+                    break;
+
+                case "activity_desc":
+                    activityReviews = activityReviews.OrderByDescending(s => s.Activity.ActivityName);
+                    break;
+
+                default:
+                    activityReviews = activityReviews.OrderBy(s => s.ActivityRating);
+                    break;
             }
 
             return View(activityReviews.ToList());
