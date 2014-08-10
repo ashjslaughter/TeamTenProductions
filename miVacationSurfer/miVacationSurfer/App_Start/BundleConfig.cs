@@ -11,7 +11,9 @@ namespace miVacationSurfer
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Content/jquery.js",
-                        "~/Content/slider.js"));
+                        "~/Content/slider.js",
+                        "~/Content/jquery.bxslider.min.js",
+                        "~/Content/jquery.bxslider.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
