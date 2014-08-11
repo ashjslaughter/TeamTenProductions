@@ -3,8 +3,31 @@
     ViewBag.Title = "ChooseReview";
 }
 
-<h2>Choose What You Wanna Review</h2>
-<a href="/LocationReview/Create">Location</a><br/>
-<a href="/ActivityReview/Create">Activity</a>
+<h2>Choose What You Would Like To Review</h2>
+<hr/>
+<div class="row">
+    <div class="col-md-6" align="center">
+        <p>
+            Have something to say about your recent Michigan vacation? Say it here!
+        </p>
+        <p>
+        <button type="button" class="btn">
+            @Html.ActionLink("Review A Location", "Create", "LocationReview")
+        </button>
+        </p>
+    </div>
+    <div class="col-md-6" align="center">
+        <p>
+            Have something to say about a recent activity in Michigan? Say it here!
+        </p>
+        <p>
+            <button type="button" class="btn">
+                @Html.ActionLink("Review An Activity", "Create", "ActivityReview")
+            </button>
+        </p>
+
+    </div>
+</div>
+
 
 
