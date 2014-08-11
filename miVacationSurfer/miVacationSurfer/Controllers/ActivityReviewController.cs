@@ -18,6 +18,11 @@ namespace miVacationSurfer.Controllers
         // GET: ActivityReview
         public ActionResult Index(string currentFilter, string sortOrder, string searchString, int? page)
         {
+            
+            ViewBag.RatingSortParm = String.IsNullOrEmpty(sortOrder) ? "rating_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.ActivitySortParm = String.IsNullOrEmpty(sortOrder) ? "activity_desc" : "";
+          
             if (searchString != null)
             {
                 page = 1;
@@ -26,10 +31,6 @@ namespace miVacationSurfer.Controllers
             {
                 searchString = currentFilter;
             }
-
-            ViewBag.RatingSortParm = String.IsNullOrEmpty(sortOrder) ? "rating_desc" : "";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            ViewBag.ActivitySortParm = String.IsNullOrEmpty(sortOrder) ? "activity_desc" : "";
 
             ViewBag.CurrentFilter = searchString;
             var activityReviews = db.ActivityReviews.Include(a => a.Activity);
@@ -54,10 +55,6 @@ namespace miVacationSurfer.Controllers
                     || s.Activity.ActivityName.Contains(searchString));
             }
 
-            int pageSize = 3;
-            int pageNumber = (page ?? 1);
-            return View(activityReviews.ToPagedList(pageNumber, pageSize));
-
             switch (sortOrder)
             {
                 case "rating_desc":
@@ -76,8 +73,9 @@ namespace miVacationSurfer.Controllers
                     activityReviews = activityReviews.OrderBy(s => s.ActivityRating);
                     break;
             }
-
-            return View(activityReviews.ToList());
+                        int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(activityReviews.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: ActivityReview/Details/5
