@@ -161,6 +161,7 @@ namespace miVacationSurfer.Controllers
             {
                 return HttpNotFound();
             }
+
             ViewBag.LocationId = new SelectList(db.Locations, "Id", "LocationName", locationReview.LocationId);
             return View(locationReview);
         }
