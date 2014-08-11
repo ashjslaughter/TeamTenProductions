@@ -167,8 +167,12 @@ namespace miVacationSurfer.Controllers
                 return HttpNotFound();
             }
             ViewBag.LocationId = new SelectList(db.Locations, "Id", "LocationName", locationReview.LocationId);
+            //SelectList regions = new SelectList(db.Regions, "Id", "RegionName");
+            //ViewData["regions"] = regions;
             return View(locationReview);
         }
+
+
 
         // POST: LocationReview/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
