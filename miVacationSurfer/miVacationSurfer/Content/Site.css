@@ -6,7 +6,7 @@ body {
     font-size: medium;
     font-weight:500;
     color: black;
-    background: url(Pictures/mackinaw.jpg) no-repeat center fixed;
+    background: url(Pictures/8615718622_c6d065d57a_k.jpg) no-repeat center fixed;
 }
 
 .navbar {
@@ -31,8 +31,11 @@ body {
   padding-left: 15px;
   padding-right: 15px;
   background-color: white;
-  opacity: 0.8;
-    filter: alpha(opacity=80);
+  opacity: 0.9;
+    filter: alpha(opacity=90);
+  border: 2px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .container img {
