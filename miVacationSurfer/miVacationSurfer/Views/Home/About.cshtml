@@ -1,7 +1,49 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "About Us";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<p>Team Ten is a group assembled by the good folks at Grand Circus Detroit in order to collaborate on a final project highlighting the skills acquired in an eight week intensive training program. The program focused on Entity Framework, SQL Server, HTML, C Sharp and ASP.NET M.V.C.</p>
+
+<div class="row">
+    <div class="col-md-3" align="center">
+        <h3>
+            Ashley Slaughter
+        </h3>
+        <p>
+            <button type="button" class="btn">
+                @Html.ActionLink("Search by Location", "Index", "LocationReview")
+            </button>
+        </p>
+    </div>
+    <div class="col-md-3" align="center">
+        <h3>Van Abeshi</h3>
+            <p>
+                <button type="button" class="btn">
+                    @Html.ActionLink("Search by Location", "Index", "LocationReview")
+                </button>
+            </p>
+</div>
+    <div class="col-md-3" align="center">
+        <h3>
+            Stephanie Rankin
+            </h3>
+            <p>
+                <button type="button" class="btn">
+                    @Html.ActionLink("Search by Location", "Index", "LocationReview")
+                </button>
+            </p>
+</div>
+    <div class="col-md-3" align="center">
+        <h3>
+            Kyle Hicks
+            </h3>
+            <p>
+                <button type="button" class="btn">
+                    @Html.ActionLink("Search by Activity", "Index", "ActivityReview")
+                </button>
+            </p>
+
+</div>
+</div>

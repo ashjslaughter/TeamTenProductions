@@ -15,7 +15,7 @@ namespace miVacationSurfer.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Who we are.";
 
             return View();
         }
