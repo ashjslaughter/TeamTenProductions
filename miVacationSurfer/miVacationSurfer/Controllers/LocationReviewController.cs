@@ -17,6 +17,7 @@ namespace miVacationSurfer.Controllers
         // GET: LocationReview
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            ViewBag.RegionSortParm = String.IsNullOrEmpty(sortOrder) ? "region_desc" : "";
             ViewBag.RatingSortParm = String.IsNullOrEmpty(sortOrder) ? "rating_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.LocationSortParm = String.IsNullOrEmpty(sortOrder) ? "location_desc" : "";
@@ -59,6 +60,10 @@ namespace miVacationSurfer.Controllers
 
             switch (sortOrder)
             {
+                case "region_desc":
+                    locationReviews = locationReviews.OrderByDescending(s => s.Location.Region.RegionName);
+                    break;
+
                 case "rating_desc":
                     locationReviews = locationReviews.OrderByDescending(s => s.LocationRating);
                     break;
@@ -162,8 +167,12 @@ namespace miVacationSurfer.Controllers
                 return HttpNotFound();
             }
             ViewBag.LocationId = new SelectList(db.Locations, "Id", "LocationName", locationReview.LocationId);
+            //SelectList regions = new SelectList(db.Regions, "Id", "RegionName");
+            //ViewData["regions"] = regions;
             return View(locationReview);
         }
+
+
 
         // POST: LocationReview/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
