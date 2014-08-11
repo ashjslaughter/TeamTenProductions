@@ -254,12 +254,17 @@
     <Content Include="Content\Pictures\A.jpg" />
     <Content Include="Content\Pictures\AR.jpg" />
     <Content Include="Content\Pictures\L.jpg" />
+    <Content Include="Content\Pictures\location.jpg" />
     <Content Include="Content\Pictures\LS.jpg" />
+    <Content Include="Content\Pictures\mackinaw.jpg" />
     <Content Include="Content\Pictures\MiVacationSurfer.png" />
+    <Content Include="Content\Pictures\rate.jpg" />
+    <Content Include="Content\Pictures\search.jpg" />
     <Content Include="Content\Pictures\Slider1.jpg" />
     <Content Include="Content\Pictures\slider2.jpg" />
     <Content Include="Content\Pictures\slider3.jpg" />
     <Content Include="Content\Pictures\slider4.jpg" />
+    <Content Include="Content\Pictures\sliderexample.png" />
     <Content Include="Content\Pictures\VacationSurfer.jpg" />
     <Content Include="Content\showtime.css" />
     <Content Include="favicon.ico" />

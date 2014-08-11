@@ -4592,7 +4592,7 @@ a.list-group-item.active > .badge,
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #4582ec;
+  border-color: dimgray;
 }
 .thumbnail .caption {
   padding: 9px;
