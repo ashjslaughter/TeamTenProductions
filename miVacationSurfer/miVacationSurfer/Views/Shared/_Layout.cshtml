@@ -9,6 +9,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/jquery.bxslider.css")
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 
 
 
@@ -23,22 +24,23 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                @*<img src="~/Content/Pictures/VactaionSurfer.jpg"/>*@
-
-                @Html.ActionLink("MI Vacation Surfer", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav text-uppercase">
                     @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
                     <li>@Html.ActionLink("Create a Review", "ChooseReview", "Home")</li>
-                    <li>@Html.ActionLink("Find a Vacation","ChooseVacation","Home")</li>
+                    <li>@Html.ActionLink("Find a Vacation", "ChooseVacation", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     @*<li>@Html.ActionLink("Locations", "Index", "Location")</li>
-                    <li>@Html.ActionLink("Location Review", "Index", "LocationReview")</li>
-                    <li>@Html.ActionLink("Activities", "Index", "Activity")</li>
-                    <li>@Html.ActionLink("Activity Reviews", "Index", "ActivityReview")</li>*@
-                    
+            <li>@Html.ActionLink("Location Review", "Index", "LocationReview")</li>
+            <li>@Html.ActionLink("Activities", "Index", "Activity")</li>
+            <li>@Html.ActionLink("Activity Reviews", "Index", "ActivityReview")</li>*@
+
                 </ul>
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control row-col-lg-8" placeholder="Search">
+                </form>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -48,7 +50,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - MI Vacation Surfer</p>
         </footer>
     </div>
 
