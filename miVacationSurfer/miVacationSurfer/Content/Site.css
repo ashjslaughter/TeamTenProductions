@@ -1,30 +1,42 @@
-﻿@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+﻿@import url(http://fonts.googleapis.com/css?family=Cabin:500,600);
+
 body {
-    padding-top: 50px;
     padding-bottom: 20px;
-    font-family: 'Open Sans Condensed', sans-serif;
-    background-color: #005c90;
-    color:white;
+    font-family: 'Cabin', sans-serif;
+    font-size: medium;
+    font-weight:500;
+    color: black;
+    background: url(Pictures/mackinaw.jpg) no-repeat center fixed;
 }
 
 .navbar {
-  font-family: 'Open Sans Condensed', sans-serif;
-  background-color: lightgray;
+    font-family: 'Cabin', sans-serif;
+    background-color: white;
 }
 
 .navbar-brand {
     background: url(Pictures/MiVacationSurfer.png) no-repeat;
-    background-size: 120px 50px ;
-    margin:5px;
+    background-size: 120px 50px;
+    margin: 5px;
     height: 50px;
     width: 120px;
-
 }
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: white;
+  opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+.container img {
+    padding-top: 15px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -32,4 +44,8 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.jumbotron {
+    font-family: 'Cabin', sans-serif;
 }

@@ -7,53 +7,58 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>*@
 
 <body onload="Slider();">
+ 
 
+        <div class="bxslider">
+            <img id="1" src="~/Content/Pictures/sliderexample.png">
+            <img id="2" src="~/Content/Pictures/slider2.jpg">
+            <img id="3" src="~/Content/Pictures/slider3.jpg">
+            <img id="4" src="~/Content/Pictures/slider4.jpg">
+        </div>
 
-<div class="row">
+ 
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">MI Vacation Surfer</h3>
+            </div>
+            <div class="panel-body">
+                <p>Thanks for visiting our site! We hope you can find the information that you need to take the perfect Michigan Vacation! If you have vacationed to a Michigan destination or you want to, this is the site for you. Surf our site to check out user reviews of popular Michigan vacation spots and activities to help you figure out where you want to go next! Make sure you come back to post your review after your trip! </p>
+                <p>Find out what others are doing and let us know what you have experienced in the Great Lakes State.</p>
+            </div>
+        </div>
+        
+    <hr />
 
-    <div class="bxslider">
-        <img id="1" src="~/Content/Pictures/Slider1.jpg">
-        <img id="2" src="~/Content/Pictures/slider2.jpg">
-        <img id="3" src="~/Content/Pictures/slider3.jpg">
-        <img id="4" src="~/Content/Pictures/slider4.jpg">
+    <div class="row">
+        <div class="col-md-6" align="center">
+            <img src="~/Content/Pictures/rate.jpg" class="img-thumbnail">
+            <p>Have something to say about your recent Michigan vacation? Say it here!</p>
+           <p> <button type="button">
+
+           @Html.ActionLink("Review A Location", "Create", "LocationReview")
+                </button></p>
+            <p>
+                <button type="button">
+                    @Html.ActionLink("Review An Activity", "Create", "ActivityReview")
+                    
+                </button>
+            </p>
+        </div>
+        <div class="col-md-6" align="center">
+            <img src="~/Content/Pictures/search.jpg" class="img-thumbnail">
+            <p>Read reviews on popular Michigan Destinations and things to do! </p>
+            <p><button type="button" class="btn">
+                       @Html.ActionLink("Find A Location", "Index", "LocationReview")
+            </button></p>
+            <p>
+                <button type="button">
+                    @Html.ActionLink("Find An Activity", "Index", "ActivityReview")
+                </button>
+            </p>
+        </div>
     </div>
     
-</div>
-    <div class="row">
-        <div class="col-md-6" align="center">
-            <img src="~/Content/Pictures/L.jpg">
-            <p>Want to review a place you just visited?</p>
-            <p>Then click the button below to do a review of where you have been.</p>
-           <p> <button type="button">
-           @Html.ActionLink("Talk About the Waves", "Create", "LocationReview")
-                </button></p>
-        </div>
-        <div class="col-md-6" align="center">
-            <img src="~/Content/Pictures/LS.jpg">
-            <p>Can't decide where to go?</p>
-            <p>Click the link to search for reviews for vacation spots you want to go.</p>
-            <p><button type="button">
-                @Html.ActionLink("Find Some Waves", "Index", "LocationReview")
-            </button></p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6" align="center">
-            <img src="~/Content/Pictures/A.jpg">
-            <p>Want to talk about your favorite activity?</p>
-            <p>Head to this page to talk about the activities you experienced.</p>
-            <p><button type="button">
-                @Html.ActionLink("Experience the Waves", "Create", "ActivityReview")
-            </button></p>
-        </div>
-        <div class="col-md-6" align="center">
-            <img src="~/Content/Pictures/AR.jpg">
-            <p>Don't know what to do?</p>
-            <p>Come here to read some reviews of the activities of a specific place.</p>
-            <p><button type="button">
-                @Html.ActionLink("Surf the Waves", "Index", "ActivityReview")
-            </button></p>
-        </div>
-    </div>
+        
+   
 
 </body>
