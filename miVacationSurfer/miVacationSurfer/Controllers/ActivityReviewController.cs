@@ -66,7 +66,7 @@ namespace miVacationSurfer.Controllers
                     break;
 
                 case "activity_desc":
-                    activityReviews = activityReviews.OrderByDescending(s => s.Activity.ActivityName);
+                    activityReviews = activityReviews.OrderBy(s => s.Activity.ActivityName);
                     break;
 
                 default:
