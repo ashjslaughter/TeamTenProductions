@@ -268,11 +268,6 @@
     <Content Include="Content\Pictures\search.jpg" />
     <Content Include="Content\Pictures\Slide-1.jpg" />
     <Content Include="Content\Pictures\Slider-2.jpg" />
-    <Content Include="Content\Pictures\Slider1.jpg" />
-    <Content Include="Content\Pictures\slider2.jpg" />
-    <Content Include="Content\Pictures\slider3.jpg" />
-    <Content Include="Content\Pictures\slider4.jpg" />
-    <Content Include="Content\Pictures\sliderexample.png" />
     <Content Include="Content\Pictures\ste.jpg" />
     <Content Include="Content\Pictures\VacationSurfer.jpg" />
     <Content Include="Content\Pictures\van.JPG" />
