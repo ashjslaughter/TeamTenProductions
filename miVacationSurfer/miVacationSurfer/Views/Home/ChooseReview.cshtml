@@ -3,32 +3,37 @@
     ViewBag.Title = "Create Review";
 }
 
-<h2>Choose What You Would Like To Review</h2>
+ <div align="center"><h2>Choose What You Would Like To Review</h2></div>
 <hr/>
 <div class="row">
-    <div class="col-md-6" align="center">
-        <p> <img class="img-thumbnail" src="~/Content/Pictures/lake.jpg" /></p>
-        <p>
-            Have something to say about your recent Michigan destination? Say it here!
-        </p>
-        <p>
-        <button type="button" class="btn">
-            @Html.ActionLink("Review A Location", "Create", "LocationReview")
-        </button>
-        </p>
+    <div class="col-md-2"></div>
+    <div class="col-md-4" align="center">
+        <div class="box-one">
+            <p> <img class="img-thumbnail" src="~/Content/Pictures/lake.jpg" /></p>
+            <p>
+                Have something to say about your recent Michigan destination? Say it here!
+            </p>
+            <p>
+                <button type="button" class="btn">
+                    @Html.ActionLink("Review A Location", "Create", "LocationReview")
+                </button>
+            </p>
+        </div>
     </div>
-    <div class="col-md-6" align="center">
-        <p><img class="img-thumbnail" src="~/Content/Pictures/ski.jpg" /></p>
-        <p>
-            Have something to say about a recent activity in Michigan? Say it here!
-        </p>
-        <p>
-            <button type="button" class="btn">
-                @Html.ActionLink("Review An Activity", "Create", "ActivityReview")
-            </button>
-        </p>
-
-    </div>
+    <div class="col-md-4" align="center">
+        <div class="box-one">
+            <p><img class="img-thumbnail" src="~/Content/Pictures/ski.jpg" /></p>
+            <p>
+                Have something to say about a recent activity in Michigan? Say it here!
+            </p>
+            <p>
+                <button type="button" class="btn">
+                    @Html.ActionLink("Review An Activity", "Create", "ActivityReview")
+                </button>
+            </p>
+            </div>
+        </div>
+    <div class="col-md-2"></div>
 </div>
 
 

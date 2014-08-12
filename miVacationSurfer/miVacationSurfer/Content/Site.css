@@ -122,3 +122,13 @@ a:hover {
     width:250px;
     height:250px;
 }
+
+.box-one{
+    
+    width: 330px;
+    padding: 15px;
+    border: 0 solid gray;
+    margin: 0; 
+    background-color: lightgray;
+
+}
