@@ -255,11 +255,13 @@
     <Content Include="Content\Pictures\A.jpg" />
     <Content Include="Content\Pictures\AR.jpg" />
     <Content Include="Content\Pictures\ash.JPG" />
+    <Content Include="Content\Pictures\dune.jpg" />
     <Content Include="Content\Pictures\explore-slider.jpg" />
     <Content Include="Content\Pictures\github.png" />
     <Content Include="Content\Pictures\kyl.JPG" />
     <Content Include="Content\Pictures\L.jpg" />
     <Content Include="Content\Pictures\lake.jpg" />
+    <Content Include="Content\Pictures\lego.jpg" />
     <Content Include="Content\Pictures\linkedin.png" />
     <Content Include="Content\Pictures\location.jpg" />
     <Content Include="Content\Pictures\logo2.png" />
