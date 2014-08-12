@@ -259,6 +259,7 @@
     <Content Include="Content\Pictures\github.png" />
     <Content Include="Content\Pictures\kyl.JPG" />
     <Content Include="Content\Pictures\L.jpg" />
+    <Content Include="Content\Pictures\lake.jpg" />
     <Content Include="Content\Pictures\linkedin.png" />
     <Content Include="Content\Pictures\location.jpg" />
     <Content Include="Content\Pictures\logo2.png" />
@@ -268,6 +269,12 @@
     <Content Include="Content\Pictures\rate-slider.jpg" />
     <Content Include="Content\Pictures\rate.jpg" />
     <Content Include="Content\Pictures\search.jpg" />
+    <Content Include="Content\Pictures\ski.jpg" />
+    <Content Include="Content\Pictures\Slider1.jpg" />
+    <Content Include="Content\Pictures\slider2.jpg" />
+    <Content Include="Content\Pictures\slider3.jpg" />
+    <Content Include="Content\Pictures\slider4.jpg" />
+    <Content Include="Content\Pictures\sliderexample.png" />
     <Content Include="Content\Pictures\ste.jpg" />
     <Content Include="Content\Pictures\VacationSurfer.jpg" />
     <Content Include="Content\Pictures\van.JPG" />
