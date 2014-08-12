@@ -8,8 +8,10 @@
  * Released under the MIT license - http://opensource.org/licenses/MIT
  */
 $(document).ready(function () {
-    $('.bxslider').bxSlider();
-});
+    $('.bxslider').bxSlider({
+        auto: true,
+        autoControls: true
+    });
 ;(function($){
 
 	var plugin = {};
@@ -67,7 +69,7 @@ $(document).ready(function () {
 
 		// AUTO
 		auto: false,
-		pause: 4000,
+		pause: 7000,
 		autoStart: true,
 		autoDirection: 'next',
 		autoHover: false,
