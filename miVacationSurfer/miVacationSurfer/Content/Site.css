@@ -15,11 +15,11 @@ body {
 }
 
 .navbar-brand {
-    background: url(Pictures/MiVacationSurfer.png) no-repeat;
-    background-size: 120px 50px;
+    background: url(Pictures/logo2.png) no-repeat;
+    background-size: 60px 60px;
     margin: 5px;
-    height: 50px;
-    width: 120px;
+    height: 60px;
+    width: 60px;
 }
 
 /* Set padding to keep content from hitting the edges */
