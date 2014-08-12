@@ -254,7 +254,9 @@
     <Content Include="Content\Pictures\8615718622_c6d065d57a_k.jpg" />
     <Content Include="Content\Pictures\A.jpg" />
     <Content Include="Content\Pictures\AR.jpg" />
+    <Content Include="Content\Pictures\ash.JPG" />
     <Content Include="Content\Pictures\github.png" />
+    <Content Include="Content\Pictures\kyl.JPG" />
     <Content Include="Content\Pictures\L.jpg" />
     <Content Include="Content\Pictures\linkedin.png" />
     <Content Include="Content\Pictures\location.jpg" />
@@ -266,7 +268,14 @@
     <Content Include="Content\Pictures\search.jpg" />
     <Content Include="Content\Pictures\Slide-1.jpg" />
     <Content Include="Content\Pictures\Slider-2.jpg" />
+    <Content Include="Content\Pictures\Slider1.jpg" />
+    <Content Include="Content\Pictures\slider2.jpg" />
+    <Content Include="Content\Pictures\slider3.jpg" />
+    <Content Include="Content\Pictures\slider4.jpg" />
+    <Content Include="Content\Pictures\sliderexample.png" />
+    <Content Include="Content\Pictures\ste.jpg" />
     <Content Include="Content\Pictures\VacationSurfer.jpg" />
+    <Content Include="Content\Pictures\van.JPG" />
     <Content Include="Content\showtime.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

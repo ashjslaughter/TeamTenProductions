@@ -1,5 +1,8 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+
+﻿
+@{
+    ViewBag.Title = "Home";
+
 }
 
 @*<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -10,17 +13,17 @@
 <body onload="Slider();">
 
 
-    <div class="bxslider">
-        <img id="1" src="~/Content/Pictures/Slide-1.jpg">
-        <img id="2" src="~/Content/Pictures/slider-2.jpg">
-        @*<img id="3" src="~/Content/Pictures/slider3.jpg">
-            <img id="4" src="~/Content/Pictures/slider4.jpg">*@
-    </div>
 
+ 
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">MI Vacation Surfer&copy;</h3>
+            </div>
+            <div class="panel-body">
+                <p>Thanks for visiting MI Vacation Surfer! We hope you can find the information that you need to have the perfect Michigan getaway! If you have visited a Michigan destination or you would like to, this is the place for you. Surf our site to check out user reviews of popular Michigan vacation spots and activities to help you figure out where you would like to go next! Make sure you come back to post your review after your trip! </p>
+                <p>Find out what others are doing and let us know what you have experienced in the Great Lakes State.</p>
+            </div>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">MI Vacation Surfer</h3>
         </div>
         <div class="panel-body">
             <p>Thanks for visiting our site! We hope you can find the information that you need to take the perfect Michigan Vacation! If you have vacationed to a Michigan destination or you want to, this is the site for you. Surf our site to check out user reviews of popular Michigan vacation spots and activities to help you figure out where you want to go next! Make sure you come back to post your review after your trip! </p>
@@ -32,13 +35,15 @@
 
     <div class="row">
         <div class="col-md-6" align="center">
+
             <img src="~/Content/Pictures/rate.jpg" class="img-circle">
             <p>Have something to say about your recent Michigan vacation? Say it here!</p>
-            <p>
-                <button type="button" class="btn">
-                    @Html.ActionLink("Review A Location", "Create", "LocationReview")
-                </button>
-            </p>
+
+
+           <p> <button type="button" class="btn">
+           @Html.ActionLink("Review A Location", "Create", "LocationReview")
+                </button></p>
+
             <p>
                 <button type="button" class="btn">
                     @Html.ActionLink("Review An Activity", "Create", "ActivityReview")
