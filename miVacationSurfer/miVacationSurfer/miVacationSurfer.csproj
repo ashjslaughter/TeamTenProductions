@@ -255,6 +255,7 @@
     <Content Include="Content\Pictures\A.jpg" />
     <Content Include="Content\Pictures\AR.jpg" />
     <Content Include="Content\Pictures\ash.JPG" />
+    <Content Include="Content\Pictures\explore-slider.jpg" />
     <Content Include="Content\Pictures\github.png" />
     <Content Include="Content\Pictures\kyl.JPG" />
     <Content Include="Content\Pictures\L.jpg" />
@@ -264,10 +265,9 @@
     <Content Include="Content\Pictures\LS.jpg" />
     <Content Include="Content\Pictures\mackinaw.jpg" />
     <Content Include="Content\Pictures\MiVacationSurfer.png" />
+    <Content Include="Content\Pictures\rate-slider.jpg" />
     <Content Include="Content\Pictures\rate.jpg" />
     <Content Include="Content\Pictures\search.jpg" />
-    <Content Include="Content\Pictures\Slide-1.jpg" />
-    <Content Include="Content\Pictures\Slider-2.jpg" />
     <Content Include="Content\Pictures\ste.jpg" />
     <Content Include="Content\Pictures\VacationSurfer.jpg" />
     <Content Include="Content\Pictures\van.JPG" />
