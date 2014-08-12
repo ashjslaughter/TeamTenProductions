@@ -20,6 +20,10 @@
     display:none;
 }
 
+#black
+{
+    color: black
+}
 /*a{
     padding: 5px 10px;
     background-color: aqua;

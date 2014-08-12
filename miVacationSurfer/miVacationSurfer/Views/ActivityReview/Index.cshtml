@@ -27,7 +27,7 @@
         </button>
     </p>
 
-            <table class="table">
+            <table class="table" id="black">
                 <tr>
                     <th>
                         @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm })
@@ -54,7 +54,7 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ActivityRating) Pbbt
+                            @Html.DisplayFor(modelItem => item.ActivityRating)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.ActivityDate)
