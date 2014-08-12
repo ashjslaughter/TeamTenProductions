@@ -49,24 +49,36 @@ select,
 textarea {
     max-width: 280px;
 }
-
-.btn {
-   
-    font-family: 'Cabin', sans-serif;
-    font-weight:500;
-    background-color:darkgray;
-    color:#0d3a5f;
-    border-color: white;
-    
-}
 a {
-    color: #0d3a5f;
+    color: #0671ca;
 }
 
 a:hover {
-    color: #0d3a5f;
+    color: #0671ca;
 }
+
+
+.btn {
+    font-family: 'Cabin', sans-serif;
+    background-color: #0671ca;
+    border-color: white;
+}
+
+.btn:hover {
+    background-color:darkgray;
+}
+
+.btn a 
+{
+    color: white;
+}
+
+
 
 .pagination {
     font-family: 'Cabin', sans-serif;
+}
+
+.img-circle {
+    padding: 0 !important;
 }
