@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create A Review</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     <form>
     <div class="form-horizontal">
-        <h4>ActivityReview</h4>
+        <h4>Review An Activity</h4>
         <hr />
             <div class="form-group">
                 @Html.LabelFor(model => model.ActivityTypes, "Activity Type", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -84,7 +84,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn" />
             </div>
         </div>
     </div>
@@ -94,7 +94,9 @@
     
  
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <button type="button" class="btn btn-sm">
+        @Html.ActionLink("Back to List", "Index")
+        </button>
 </div>
 
 @section Scripts {

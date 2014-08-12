@@ -62,10 +62,12 @@ a:hover {
     font-family: 'Cabin', sans-serif;
     background-color: #0671ca;
     border-color: white;
+    color:white;
 }
 
 .btn:hover {
     background-color:darkgray;
+    color: white;
 }
 
 .btn a 
