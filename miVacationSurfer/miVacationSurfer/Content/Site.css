@@ -12,6 +12,7 @@ body {
 .navbar {
     font-family: 'Cabin', sans-serif;
     background-color: white;
+    font-size: small
 }
 
 .navbar-brand {
