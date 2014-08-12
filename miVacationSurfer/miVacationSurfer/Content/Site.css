@@ -53,14 +53,19 @@ textarea {
    
     font-family: 'Cabin', sans-serif;
     font-weight:500;
-    background-color:green;
-    color:white;
+    background-color:darkgray;
+    color:#0d3a5f;
+    border-color: white;
     
 }
 a {
-    color: white;
+    color: #0d3a5f;
 }
 
 a:hover {
-    color: white;
+    color: #0d3a5f;
+}
+
+.pagination {
+    font-family: 'Cabin', sans-serif;
 }

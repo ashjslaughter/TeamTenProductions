@@ -9,7 +9,9 @@
     <h2>Location Review</h2>
 
     <p>
-        @Html.ActionLink("Create New", "Create")
+        <button type="button" class="btn">
+            @Html.ActionLink("Create New", "Create")
+        </button>
     </p>
 
     @using (Html.BeginForm("Index", "LocationReview", FormMethod.Get))
@@ -78,10 +80,16 @@
                         @Html.DisplayFor(modelItem => item.LocationReviewDetails)
                     </td>*@
 
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                <td class="btn-group">
+                    <button type="button" class="btn">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    </button>
+                    <button type="button" class="btn">
+                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                    </button>
+                    <button type="button" class="btn">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </button>
                 </td>
             </tr>
         }
