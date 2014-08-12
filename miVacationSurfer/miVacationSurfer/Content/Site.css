@@ -81,4 +81,18 @@ a:hover {
 
 .img-circle {
     padding: 0 !important;
+    height: 150px;
+    width: 150px;
+ 
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+
+.img-circle:hover {
+    padding: 0 !important;
+    width: 165px;
+    height: 165px;
 }
