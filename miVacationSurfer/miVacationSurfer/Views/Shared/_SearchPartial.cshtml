@@ -1,0 +1,10 @@
+﻿
+<h2>_SearchPartial</h2>
+<div class="search-bar"> 
+    @using (Html.BeginForm("Results", "Search"))
+  { 
+    @Html.TextBox("SearchText")
+    <input class="search-button" type="submit" value="Search" />
+  }
+</div>
+
