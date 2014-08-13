@@ -2,30 +2,35 @@
     ViewBag.Title = "Choose a Vacation";
 }
 
-<h2>Choose A Vacation Destination</h2>
+<div align="center"><h2>Choose A Vacation Destination</h2></div>
 <hr />
 <div class="row">
-    <div class="col-md-6" align="center">
-        <p> <img class="img-thumbnail" src="~/Content/Pictures/dune.jpg" /></p>
-        <p>
-            Search reviews of Michigan destinations.
-        </p>
-        <p>
-            <button type="button" class="btn">
-                @Html.ActionLink("Search by Location", "Index", "LocationReview")
-            </button>
-        </p>
-    </div>
-    <div class="col-md-6" align="center">
-        <p> <img class="img-thumbnail" src="~/Content/Pictures/lego.jpg" /></p>
-        <p>
-            Search reviews of Michigan attractions.
-        </p>
-        <p>
-            <button type="button" class="btn">
-                @Html.ActionLink("Search by Activity", "Index", "ActivityReview")
-            </button>
-        </p>
-
-    </div>
-</div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4" align="center">
+        <div class="box-one">
+            <p> <img class="img-thumbnail" src="~/Content/Pictures/dune.jpg" /></p>
+            <p>
+                Search reviews of Michigan destinations.
+            </p>
+            <p>
+                <button type="button" class="btn">
+                    @Html.ActionLink("Search by Location", "Index", "LocationReview")
+                </button>
+            </p>
+        </div>
+     </div>
+        <div class="col-md-4" align="center">
+            <div class="box-one">
+                <p> <img class="img-thumbnail" src="~/Content/Pictures/lego.jpg" /></p>
+                <p>
+                    Search reviews of Michigan attractions.
+                </p>
+                <p>
+                    <button type="button" class="btn">
+                        @Html.ActionLink("Search by Activity", "Index", "ActivityReview")
+                    </button>
+                </p>
+            </div>
+          </div>
+    <div class="col-md-2"></div>
+ </div>
