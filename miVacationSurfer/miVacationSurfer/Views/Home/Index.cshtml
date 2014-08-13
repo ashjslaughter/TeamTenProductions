@@ -1,4 +1,4 @@
-
+﻿
 ﻿
 @{
     ViewBag.Title = "Home";
@@ -68,10 +68,12 @@
                 </button>
             </p>
         </div>
-        @if (User.Identity.Name == "team10@team10.com")
-        {
-            @Html.ActionLink("Manage Data Relationships", "AdminIndex", "Home")
-        }
+        <p>
+            @if (User.Identity.Name == "team10@team10.com")
+            {
+                @Html.ActionLink("Manage Data Relationships", "AdminIndex", "Home")
+            }
+        </p>
     </div>
 
 
