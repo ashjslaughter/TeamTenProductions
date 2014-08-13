@@ -197,6 +197,7 @@
     <Compile Include="Controllers\LocationReviewController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
     <Compile Include="Controllers\ReviewViewModelController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SeasonActivityController.cs" />
     <Compile Include="Controllers\SeasonController.cs" />
     <Compile Include="Global.asax.cs">
@@ -405,9 +406,11 @@
     <Content Include="Views\Home\ChooseReview.cshtml" />
     <Content Include="Views\Home\ChooseVacation.cshtml" />
     <Content Include="Views\Home\AdminIndex.cshtml" />
+    <Content Include="Views\Shared\SearchActivity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Search\" />
     <Folder Include="Views\ViewModel\" />
   </ItemGroup>
   <ItemGroup>
