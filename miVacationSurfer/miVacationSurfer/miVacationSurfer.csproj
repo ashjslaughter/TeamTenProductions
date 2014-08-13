@@ -408,10 +408,10 @@
     <Content Include="Views\Home\AdminIndex.cshtml" />
     <Content Include="Views\Shared\SearchActivity.cshtml" />
     <Content Include="Views\Shared\_SearchPartial.cshtml" />
+    <Content Include="Views\Search\Results.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Search\" />
     <Folder Include="Views\ViewModel\" />
   </ItemGroup>
   <ItemGroup>

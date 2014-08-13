@@ -11,7 +11,7 @@ namespace miVacationSurfer.Controllers
         private miVacationSurferEntities db = new miVacationSurferEntities();
 
         // GET: Search
-        public ActionResult SearchActivity(string term)
+        public ActionResult Results(string term)
         {
             var search = from x in db.LocationReviews
                          select x;
