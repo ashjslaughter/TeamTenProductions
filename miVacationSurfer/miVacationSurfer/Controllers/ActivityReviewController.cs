@@ -98,9 +98,7 @@ namespace miVacationSurfer.Controllers
         // GET: ActivityReview/Create
         public ActionResult Create()
         {
-            //SelectList activityTypes = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName");
-            //ViewData["activityTypes"] = activityTypes;
-
+           
             SelectList seasons = new SelectList(db.Seasons, "Id", "SeasonName");
             ViewData["seasons"] = seasons;
             
@@ -112,14 +110,7 @@ namespace miVacationSurfer.Controllers
         [HttpPost]
         public JsonResult GetActivitys(int seasonId)
         {
-            //var seasonActivityId = -1;
-            //int.TryParse(seasonId, out seasonActivityId);
-            //List<SelectListItem> seasonActivitys = new List<SelectListItem>();
-            //var seasonList =
-            //     from r in db.SeasonActivities
-            //     where r.SeasonId == seasonId
-            //     select r;
-
+          
             var seasonActivitys =
                 from r in db.Seasons
                 join r2 in db.SeasonActivities
@@ -127,13 +118,6 @@ namespace miVacationSurfer.Controllers
                 where (r.Id == seasonId) && (r2.SeasonId == seasonId)
                 select new SelectListItem { Text = r2.Activity.ActivityName, Value = r2.ActivityId.ToString()};
 
-
-            //foreach (var item in seasonList)
-            //{
-            //    seasonActivitys.Add(new SelectListItem { Text = item.Activity.ActivityName, Value = item.Activity.Id.ToString() });
-            //}
-
-          
             return Json(seasonActivitys);
         }
 
