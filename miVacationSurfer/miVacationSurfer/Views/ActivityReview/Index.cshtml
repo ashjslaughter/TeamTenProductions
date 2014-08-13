@@ -27,27 +27,22 @@
         </button>
     </p>
 
-            <table class="table" id="black">
+            <table class="table col-md-12" id="black">
                 <tr>
                     <th>
                         @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm })
                     </th>
                     <th>
                         @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
-                    </th>
-                    @*<th>
-                            @Html.DisplayNameFor(model => model.ActivityPro)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ActivityCon)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ActivityReviewDetails)
-                        </th>*@
+                    </th>                 
                     <th>
-                        @Html.ActionLink("ActivityName", "Index", new { sortOrder = ViewBag.ActivitySortParm })
+                        @Html.ActionLink("Activity Name", "Index", new { sortOrder = ViewBag.ActivitySortParm })
+                    </th>
+                    <th>
+                        @Html.Label("Activity Details")
                     </th>
                     <th></th>
+                  
                 </tr>
       
                 @foreach (var item in Model)
@@ -59,18 +54,15 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.ActivityDate)
                         </td>
-                        @*<td>
-                                @Html.DisplayFor(modelItem => item.ActivityPro)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ActivityCon)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ActivityReviewDetails)
-                            </td>*@
+                     
                         <td>
                             @Html.DisplayFor(modelItem => item.Activity.ActivityName)
                         </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActivityReviewDetails)
+                        </td>
+
                         <td class="btn-group">
                             <button type="button" class="btn">
                                 @Html.ActionLink("Edit", "Edit", new { id = item.Id })
