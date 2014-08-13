@@ -98,48 +98,40 @@ namespace miVacationSurfer.Controllers
         // GET: ActivityReview/Create
         public ActionResult Create()
         {
-            SelectList activityTypes = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName");
-            ViewData["activityTypes"] = activityTypes;
+            //SelectList activityTypes = new SelectList(db.ActivityTypes, "Id", "ActivityTypeName");
+            //ViewData["activityTypes"] = activityTypes;
 
-            //SelectList seasons = new SelectList(db.Seasons, "Id", "SeasonName");
-            //ViewData["seasons"] = seasons;
+            SelectList seasons = new SelectList(db.Seasons, "Id", "SeasonName");
+            ViewData["seasons"] = seasons;
             
             return View();
         }
 
-        [HttpPost]
-        public JsonResult GetSeasons( int activitytypeId)
-        {
-            List<SelectListItem> activityTypeSeasons = new List<SelectListItem>();
-            var activityTypeList =
-                 from a in db.ActivityTypeSeasons
-                 where a.ActivityTypeId == activitytypeId
-                 select a;
-
-            foreach (var item in activityTypeList)
-            {
-                activityTypeSeasons.Add(new SelectListItem { Text = item.Season.SeasonName, Value = item.Season.Id.ToString() });
-            }
-
-
-            return Json(activityTypeSeasons);
-        }
+    
 
         [HttpPost]
         public JsonResult GetActivitys(int seasonId)
         {
             //var seasonActivityId = -1;
             //int.TryParse(seasonId, out seasonActivityId);
-            List<SelectListItem> seasonActivitys = new List<SelectListItem>();
-            var seasonList =
-                 from r in db.SeasonActivities
-                 where r.SeasonId == seasonId
-                 select r;
+            //List<SelectListItem> seasonActivitys = new List<SelectListItem>();
+            //var seasonList =
+            //     from r in db.SeasonActivities
+            //     where r.SeasonId == seasonId
+            //     select r;
 
-            foreach (var item in seasonList)
-            {
-                seasonActivitys.Add(new SelectListItem { Text = item.Activity.ActivityName, Value = item.Activity.Id.ToString() });
-            }
+            var seasonActivitys =
+                from r in db.Seasons
+                join r2 in db.SeasonActivities
+                on r.Id equals r2.SeasonId
+                where (r.Id == seasonId) && (r2.SeasonId == seasonId)
+                select new SelectListItem { Text = r2.Activity.ActivityName, Value = r2.ActivityId.ToString()};
+
+
+            //foreach (var item in seasonList)
+            //{
+            //    seasonActivitys.Add(new SelectListItem { Text = item.Activity.ActivityName, Value = item.Activity.Id.ToString() });
+            //}
 
           
             return Json(seasonActivitys);
