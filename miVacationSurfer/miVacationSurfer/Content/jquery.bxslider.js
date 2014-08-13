@@ -69,7 +69,7 @@ $(document).ready(function () {
 
 		// AUTO
 		auto: false,
-		pause: 7000,
+		pause: 4000,
 		autoStart: true,
 		autoDirection: 'next',
 		autoHover: false,
