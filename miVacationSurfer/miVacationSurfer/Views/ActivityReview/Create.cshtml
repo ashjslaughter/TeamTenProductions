@@ -14,6 +14,7 @@
     <div class="form-horizontal">
         <h4>Review An Activity</h4>
         <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
   
             <div class="form-group">
                 @Html.LabelFor(model => model.Seasons, "Season", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -42,7 +43,7 @@
             </div>
 
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            
             <div class="form-group">
                 @Html.LabelFor(model => model.ActivityRating, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
