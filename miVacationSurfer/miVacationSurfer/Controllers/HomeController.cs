@@ -40,5 +40,11 @@ namespace miVacationSurfer.Controllers
 
             return View();
         }
+        
+        [Authorize(Users="team10@team10.com")]
+        public ActionResult AdminIndex()
+        {
+            return View();
+        }
     }
 }

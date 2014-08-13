@@ -67,6 +67,10 @@
                 </button>
             </p>
         </div>
+        @if (User.Identity.Name == "team10@team10.com")
+        {
+            @Html.ActionLink("Manage Data Relationships", "AdminIndex", "Home")
+        }
     </div>
 
 
