@@ -1,9 +1,14 @@
 ﻿
-<div class="search-bar"> 
-    @using (Html.BeginForm("Results", "Search"))
-  { 
-    @Html.TextBox("SearchText")
-    <input class="search-button" type="submit" value="Search" />
-  }
-</div>
+
+        @using (Html.BeginForm("Results", "Search"))
+        {
+            <form class="navbar-form navbar-left">
+
+                <input type="text" class="form-control row-col-lg-6" placeholder="Search">
+
+                @*<input class="search-button" type="submit" value="Search" />*@
+
+            </form>
+        }
+
 
