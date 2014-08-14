@@ -6,7 +6,7 @@
 }
 
 <body>
-    
+
     <div class="bxslider">
         <img src="~/Content/Pictures/explore-slider.jpg">
         <img src="~/Content/Pictures/rate-slider.jpg">
@@ -22,7 +22,7 @@
             <p>Find out what others are doing and let us know what you have experienced in the Great Lakes State.</p>
         </div>
 
-        </div>
+    </div>
 
     <div class="row">
         <div class="col-md-6" align="center">
@@ -30,32 +30,26 @@
             <a href="/Home/ChooseReview"><img src="~/Content/Pictures/rate.jpg" class="img-circle"></a>
             <p>Have something to say about your recent Michigan vacation? Say it here!</p>
 
-
             <p>
-                <button type="button" class="btn">
-                    @Html.ActionLink("Review A Location", "Create", "LocationReview")
-                </button>
+                <input type="button" value="Review a Location" class="btn"
+                       onclick="location.href='@Url.Action("Create","LocationReview")'" />
             </p>
-
             <p>
-                <button type="button" class="btn">
-                    @Html.ActionLink("Review An Activity", "Create", "ActivityReview")
-
-                </button>
+                <input type="button" value="Review an Activity" class="btn"
+                       onclick="location.href='@Url.Action("Create","ActivityReview")'" />
             </p>
+           
         </div>
         <div class="col-md-6" align="center">
             <a href="/Home/ChooseVacation"><img src="~/Content/Pictures/search.jpg" class="img-circle"></a>
             <p>Read reviews on popular Michigan Destinations and things to do! </p>
             <p>
-                <button type="button" class="btn">
-                    @Html.ActionLink("Find A Location", "Index", "LocationReview")
-                </button>
+                <input type="button" value="Find a Location" class="btn"
+                       onclick="location.href='@Url.Action("Index","LocationReview")'"/>
             </p>
             <p>
-                <button type="button" class="btn">
-                    @Html.ActionLink("Find An Activity", "Index", "ActivityReview")
-                </button>
+                <input type="button" value="Find an Activity" class="btn"
+                       onclick="location.href='@Url.Action("Index","ActivityReview")'"/>
             </p>
         </div>
 

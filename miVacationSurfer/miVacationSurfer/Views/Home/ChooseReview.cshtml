@@ -14,10 +14,10 @@
                 Have something to say about your recent Michigan destination? Say it here!
             </p>
             <p>
-                <button type="button" class="btn">
-                    @Html.ActionLink("Review A Location", "Create", "LocationReview")
-                </button>
+                <input type="button" value="Review a Location" class="btn"
+                       onclick="location.href='@Url.Action("Create","LocationReview")'" />
             </p>
+            
         </div>
     </div>
     <div class="col-md-4" align="center">
@@ -27,9 +27,8 @@
                 Have something to say about a recent activity in Michigan? Say it here!
             </p>
             <p>
-                <button type="button" class="btn">
-                    @Html.ActionLink("Review An Activity", "Create", "ActivityReview")
-                </button>
+                <input type="button" value="Review an Activity" class="btn"
+                       onclick="location.href='@Url.Action("Create","ActivityReview")'" />
             </p>
             </div>
         </div>

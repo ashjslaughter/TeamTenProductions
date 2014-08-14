@@ -13,10 +13,10 @@
                 Search reviews of Michigan destinations.
             </p>
             <p>
-                <button type="button" class="btn">
-                    @Html.ActionLink("Search by Location", "Index", "LocationReview")
-                </button>
+                <input type="button" value="Find a Location" class="btn"
+                       onclick="location.href='@Url.Action("Index","LocationReview")'" />
             </p>
+            
         </div>
      </div>
         <div class="col-md-4" align="center">
@@ -26,9 +26,8 @@
                     Search reviews of Michigan attractions.
                 </p>
                 <p>
-                    <button type="button" class="btn">
-                        @Html.ActionLink("Search by Activity", "Index", "ActivityReview")
-                    </button>
+                    <input type="button" value="Find an Activity" class="btn"
+                           onclick="location.href='@Url.Action("Index","ActivityReview")'" />
                 </p>
             </div>
           </div>
