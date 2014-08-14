@@ -22,6 +22,7 @@ namespace miVacationSurfer.Controllers
                     search = search.Where(x => x.Location.Region.RegionName.ToUpper().Contains(term.ToUpper())
                             || x.Location.LocationName.ToUpper().Contains(term.ToUpper()));
                 
+
             }
             //Where (ActivityName like '%' + term + '%') OR (ActivityDescription Like '%' + term + '%')
 
