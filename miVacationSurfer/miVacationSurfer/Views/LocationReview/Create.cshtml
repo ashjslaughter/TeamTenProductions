@@ -84,10 +84,9 @@
     </div>
     </form>
 }
-
-<button type="button" class="btn btn-sm">
-    @Html.ActionLink("Back to List", "Index")
-</button>
+<div>
+    <input type="button" value="Back to List" class="btn btn-sm" onclick="location.href='@Url.Action("Index", "LocationReview")'" />
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -43,7 +43,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.LocationPro, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.LocationPro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.LocationPro, 5, 50, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.LocationPro, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -51,7 +51,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.LocationCon, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.LocationCon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.LocationCon, 5, 50, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.LocationCon, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -59,7 +59,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.LocationReviewDetails, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.LocationReviewDetails, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.LocationReviewDetails, 5, 50, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.LocationReviewDetails, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -68,14 +68,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn" />
             </div>
         </div>
     </div>
 }
 
-<div class="btn btn-sm">
-    @Html.ActionLink("Back to List", "Index")
+<div>
+    <input type="button" value="Back to List" class="btn" onclick="location.href='@Url.Action("Index", "LocationReview")'" />
 </div>
 
 @section Scripts {
