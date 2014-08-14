@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.Location.LocationName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit","Edit", "LocationReview", new { id=item.Id }, null) |
+            @Html.ActionLink("Details", "Details", "LocationReview", new { id = item.Id }, null) |
+            @Html.ActionLink("Delete", "Delete", "LocationReview", new { id = item.Id }, null)
         </td>
     </tr>
 }
