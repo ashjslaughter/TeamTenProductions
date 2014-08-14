@@ -132,3 +132,7 @@ a:hover {
     background-color: lightgray;
 
 }
+
+.form-control {
+    margin-top: 10px;
+}
