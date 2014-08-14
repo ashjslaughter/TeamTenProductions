@@ -18,24 +18,10 @@ namespace miVacationSurfer.Controllers
             if (!String.IsNullOrEmpty(term))
             {
 
-                DateTime temp;
-                if (DateTime.TryParse(term, out temp))
-                {
-
-                }
-
-                int tempRating;
-                if (Int32.TryParse(term, out tempRating))
-                {
                     //a search results model, like model to the view, but you would use the model
                     search = search.Where(x => x.Location.Region.RegionName.ToUpper().Contains(term.ToUpper())
-                            || x.Location.LocationName.Contains(term)
-                            || (temp != null && (x.LocationDate >= temp && x.LocationDate <= temp))
-                            || ((x.LocationRating >= 1 || x.LocationRating <= 5) && (x.LocationRating == tempRating))
-                            || x.LocationPro.Contains(term)
-                            || x.LocationCon.Contains(term)
-                            || x.LocationReviewDetails.Contains(term));
-                }
+                            || x.Location.LocationName.ToUpper().Contains(term.ToUpper()));
+                
             }
             //Where (ActivityName like '%' + term + '%') OR (ActivityDescription Like '%' + term + '%')
 
