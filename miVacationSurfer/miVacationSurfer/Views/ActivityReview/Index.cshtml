@@ -22,9 +22,8 @@
     }
 
     <p>
-        <button type="button" class="btn">
-            @Html.ActionLink("Create New", "Create")
-        </button>
+        <input type="button" value="Create New" class="btn" onclick="location.href='@Url.Action("Create", "ActivityReview")'" />
+       
     </p>
 
             <table class="table col-md-12" id="black">
@@ -64,15 +63,9 @@
                         </td>
 
                         <td class="btn-group">
-                            <button type="button" class="btn">
-                                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-                            </button>
-                            <button type="button" class="btn">
-                                @Html.ActionLink("Details", "Details", new { id = item.Id })
-                            </button>
-                            <button type="button" class="btn">
-                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                            </button>
+                            <input type="button" value="Edit" class="btn" onclick="location.href='@Url.Action("Edit", "ActivityReview", new { id = item.Id })'" />
+                            <input type="button" value="Details" class="btn" onclick="location.href='@Url.Action("Details", "ActivityReview", new { id = item.Id })'" />
+                            <input type="button" value="Delete" class="btn" onclick="location.href='@Url.Action("Delete", "ActivityReview", new { id = item.Id })'" />
                         </td>
                     </tr>
                 }

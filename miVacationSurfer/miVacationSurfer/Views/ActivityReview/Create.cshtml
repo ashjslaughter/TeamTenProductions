@@ -92,9 +92,8 @@
     
  
 <div>
-    <button type="button" class="btn btn-sm">
-        @Html.ActionLink("Back to List", "Index")
-        </button>
+    <input type="button" Value="Back to List" class="btn btn-sm" onclick="location.href='@Url.Action("Index", "ActivityReview")'"/>
+        
 </div>
 
 @section Scripts {

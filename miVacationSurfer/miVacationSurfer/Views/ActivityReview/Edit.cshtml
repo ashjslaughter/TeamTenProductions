@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>ActivityReview</h4>
+        <h4>Activity Review</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -76,7 +76,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <input type="button" value="Back to List" class="btn" onclick="location.href='@Url.Action("Index", "ActivityReview")'" />
 </div>
 
 @section Scripts {

@@ -10,7 +10,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>ActivityReview</h4>
+    <h4>Activity Review</h4>
     <hr />
     <dl class="dl-horizontal">
         
@@ -77,7 +77,9 @@
 <span class='st_pinterest_large'></span>
 <span class='st_email_large'></span>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="btn-group">
+    <input type="button" value="Edit" class="btn" onclick="location.href='@Url.Action("Edit", "ActivityReview", new { id = Model.Id })'" />
+    <input type="button" value="Back to List" class="btn" onclick="location.href='@Url.Action("Index", "ActivityReview")'" />
+</div>
+
