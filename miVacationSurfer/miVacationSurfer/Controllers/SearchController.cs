@@ -25,15 +25,17 @@ namespace miVacationSurfer.Controllers
                 }
 
                 int tempRating;
-                if (Int32.TryParse(term, out tempRating)) { }
-                //a search results model, like model to the view, but you would use the model
-                search = search.Where(x => x.Location.Region.RegionName.ToUpper().Contains(term.ToUpper())
-                        || x.Location.LocationName.Contains(term)
-                        || (temp != null && (x.LocationDate >= temp && x.LocationDate <= temp))
-                        || ((x.LocationRating >= 1 || x.LocationRating <= 5) && (x.LocationRating == tempRating))
-                        || x.LocationPro.Contains(term)
-                        || x.LocationCon.Contains(term)
-                        || x.LocationReviewDetails.Contains(term));
+                if (Int32.TryParse(term, out tempRating))
+                {
+                    //a search results model, like model to the view, but you would use the model
+                    search = search.Where(x => x.Location.Region.RegionName.ToUpper().Contains(term.ToUpper())
+                            || x.Location.LocationName.Contains(term)
+                            || (temp != null && (x.LocationDate >= temp && x.LocationDate <= temp))
+                            || ((x.LocationRating >= 1 || x.LocationRating <= 5) && (x.LocationRating == tempRating))
+                            || x.LocationPro.Contains(term)
+                            || x.LocationCon.Contains(term)
+                            || x.LocationReviewDetails.Contains(term));
+                }
             }
             //Where (ActivityName like '%' + term + '%') OR (ActivityDescription Like '%' + term + '%')
 
